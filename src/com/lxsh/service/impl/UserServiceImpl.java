@@ -1,5 +1,7 @@
 package com.lxsh.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -25,5 +27,17 @@ public class UserServiceImpl implements IUserService {
 
 	public int insert(User user) {
 		return userDao.insertSelective(user);
+	}
+
+	@Override
+	public String login(User user) {
+		
+		List<User> list = userDao.login(user);
+		
+		if(list.size()==1)
+			return "success";
+		else if(list.size()==0)
+			return "not-exist";
+		return "fail";
 	}
 }

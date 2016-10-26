@@ -1,5 +1,7 @@
 package com.lxsh.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.lxsh.model.User;
@@ -18,4 +20,6 @@ public interface IUserDao {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+    
+    List<User> login(User user);
 }

@@ -50,4 +50,9 @@ public class User {
     public void setStatus(Integer status) {
         this.status = status;
     }
+
+	@Override
+	public String toString() {
+		return "name:"+username+" pwd:********";
+	}
 }

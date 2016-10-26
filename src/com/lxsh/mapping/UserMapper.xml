@@ -92,4 +92,11 @@
 		status = #{status,jdbcType=INTEGER}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
+	<select id="login"  parameterType="com.lxsh.model.User" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where username = #{username,jdbcType=VARCHAR}
+		and password = #{password,jdbcType=VARCHAR}
+	</select>
 </mapper>

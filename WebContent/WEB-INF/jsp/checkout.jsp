@@ -11,7 +11,7 @@
 <base href="<%=basePath%>" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>首页</title>
-<jsp:include page="<%=basePath%>include/head.jsp"></jsp:include>
+<jsp:include page="../../include/head.jsp"></jsp:include>
 <script>
 	// Can also be used with $(document).ready()
 	$(window).load(function() {
@@ -23,7 +23,7 @@
 </script>
 </head>
 <body>
-	<jsp:include page="<%=basePath%>include/header.jsp"></jsp:include>
+	<jsp:include page="../../include/header.jsp"></jsp:include>
 	<div class="head-bread">
 		<div class="container">
 			<ol class="breadcrumb">
@@ -129,6 +129,6 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	<jsp:include page="<%=basePath%>include/footer.jsp"></jsp:include>
+	<jsp:include page="../../include/footer.jsp"></jsp:include>
 </body>
 </html>

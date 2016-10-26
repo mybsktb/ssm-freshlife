@@ -43,12 +43,12 @@
                              <div class="strip"></div>
                              <p>欢迎，请跟随提示继续操作</p>
                              <p>如果您已登录，请 <a href="#">点击这里</a></p>
-                             <form>
+                             <form action="login" method="post">
                                  <h5>用户名:</h5>	
-                                 <input type="text" value="">
+                                 <input type="text" name="username">
                                  <h5>密码:</h5>
-                                 <input type="password" value=""><br>					
-                                 <input type="submit" value="Login">
+                                 <input type="password" name="password"><br>					
+                                 <input type="submit" value="登录">
 
                              </form>
                             <a href="#">忘记密码 ?</a>
