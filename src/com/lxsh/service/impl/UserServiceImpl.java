@@ -18,13 +18,11 @@ public class UserServiceImpl implements IUserService {
 		this.userDao = userDao;
 	}
 
-	@Override
 	public User getUserById(int userId) {
 		// TODO Auto-generated method stub
 		return userDao.selectByPrimaryKey(userId);
 	}
 
-	@Override
 	public int insert(User user) {
 		return userDao.insertSelective(user);
 	}
