@@ -12,5 +12,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 	<body>
 		<p><a href="login?id=6">欢迎登录</a></p>
+		<p>nihao </p>
 	</body>
 </html>
