@@ -1,7 +1,10 @@
 package com.lxsh.dao;
 
+import org.springframework.stereotype.Repository;
+
 import com.lxsh.model.Goods;
 
+@Repository
 public interface IGoodsDao {
     int deleteByPrimaryKey(Integer gid);
 

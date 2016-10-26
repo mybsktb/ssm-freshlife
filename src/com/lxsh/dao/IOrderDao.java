@@ -1,7 +1,10 @@
 package com.lxsh.dao;
 
+import org.springframework.stereotype.Repository;
+
 import com.lxsh.model.Order;
 
+@Repository
 public interface IOrderDao {
     int deleteByPrimaryKey(Integer oid);
 
