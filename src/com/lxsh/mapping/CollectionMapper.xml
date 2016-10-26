@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lxsh.dao.ICollectionDao" >
+  <resultMap id="BaseResultMap" type="com.lxsh.model.Collection" >
+    <id column="cid" property="cid" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="gid" property="gid" jdbcType="INTEGER" />
+    <result column="cdate" property="cdate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cid, uid, gid, cdate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from collection
+    where cid = #{cid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from collection
+    where cid = #{cid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lxsh.model.Collection" >
+    insert into collection (cid, uid, gid, 
+      cdate)
+    values (#{cid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{gid,jdbcType=INTEGER}, 
+      #{cdate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lxsh.model.Collection" >
+    insert into collection
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cid != null" >
+        cid,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="gid != null" >
+        gid,
+      </if>
+      <if test="cdate != null" >
+        cdate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cid != null" >
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="gid != null" >
+        #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="cdate != null" >
+        #{cdate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lxsh.model.Collection" >
+    update collection
+    <set >
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="gid != null" >
+        gid = #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="cdate != null" >
+        cdate = #{cdate,jdbcType=DATE},
+      </if>
+    </set>
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lxsh.model.Collection" >
+    update collection
+    set uid = #{uid,jdbcType=INTEGER},
+      gid = #{gid,jdbcType=INTEGER},
+      cdate = #{cdate,jdbcType=DATE}
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+</mapper>

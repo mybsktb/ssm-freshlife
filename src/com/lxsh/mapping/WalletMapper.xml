@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lxsh.dao.IWalletDao" >
+  <resultMap id="BaseResultMap" type="com.lxsh.model.Wallet" >
+    <id column="wid" property="wid" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="balance" property="balance" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    wid, uid, balance
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wallet
+    where wid = #{wid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wallet
+    where wid = #{wid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lxsh.model.Wallet" >
+    insert into wallet (wid, uid, balance
+      )
+    values (#{wid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{balance,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lxsh.model.Wallet" >
+    insert into wallet
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="wid != null" >
+        wid,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="balance != null" >
+        balance,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="wid != null" >
+        #{wid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="balance != null" >
+        #{balance,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lxsh.model.Wallet" >
+    update wallet
+    <set >
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="balance != null" >
+        balance = #{balance,jdbcType=INTEGER},
+      </if>
+    </set>
+    where wid = #{wid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lxsh.model.Wallet" >
+    update wallet
+    set uid = #{uid,jdbcType=INTEGER},
+      balance = #{balance,jdbcType=INTEGER}
+    where wid = #{wid,jdbcType=INTEGER}
+  </update>
+</mapper>
