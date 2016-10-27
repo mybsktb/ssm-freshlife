@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lxsh.dao.IGoodsDao" >
+<mapper namespace="com.lxsh.dao.GoodsMapper" >
   <resultMap id="BaseResultMap" type="com.lxsh.model.Goods" >
     <id column="gid" property="gid" jdbcType="INTEGER" />
     <result column="gname" property="gname" jdbcType="VARCHAR" />
     <result column="bid" property="bid" jdbcType="INTEGER" />
     <result column="gprice" property="gprice" jdbcType="DOUBLE" />
     <result column="gsize" property="gsize" jdbcType="VARCHAR" />
+    <result column="gsex" property="gsex" jdbcType="INTEGER" />
+    <result column="gstlye" property="gstlye" jdbcType="INTEGER" />
     <result column="gtype" property="gtype" jdbcType="INTEGER" />
     <result column="gnumber" property="gnumber" jdbcType="INTEGER" />
     <result column="gsalenum" property="gsalenum" jdbcType="INTEGER" />
@@ -15,10 +17,11 @@
     <result column="gimage" property="gimage" jdbcType="VARCHAR" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.lxsh.model.Goods" extends="BaseResultMap" >
-    <result column="gcontext" property="gcontext" jdbcType="LONGVARBINARY" />
+    <result column="gcontext" property="gcontext" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    gid, gname, bid, gprice, gsize, gtype, gnumber, gsalenum, gdate, gnow, gimage
+    gid, gname, bid, gprice, gsize, gsex, gstlye, gtype, gnumber, gsalenum, gdate, gnow, 
+    gimage
   </sql>
   <sql id="Blob_Column_List" >
     gcontext
@@ -37,15 +40,15 @@
   </delete>
   <insert id="insert" parameterType="com.lxsh.model.Goods" >
     insert into goods (gid, gname, bid, 
-      gprice, gsize, gtype, 
-      gnumber, gsalenum, gdate, 
-      gnow, gimage, gcontext
-      )
+      gprice, gsize, gsex, 
+      gstlye, gtype, gnumber, 
+      gsalenum, gdate, gnow, 
+      gimage, gcontext)
     values (#{gid,jdbcType=INTEGER}, #{gname,jdbcType=VARCHAR}, #{bid,jdbcType=INTEGER}, 
-      #{gprice,jdbcType=DOUBLE}, #{gsize,jdbcType=VARCHAR}, #{gtype,jdbcType=INTEGER}, 
-      #{gnumber,jdbcType=INTEGER}, #{gsalenum,jdbcType=INTEGER}, #{gdate,jdbcType=DATE}, 
-      #{gnow,jdbcType=INTEGER}, #{gimage,jdbcType=VARCHAR}, #{gcontext,jdbcType=LONGVARBINARY}
-      )
+      #{gprice,jdbcType=DOUBLE}, #{gsize,jdbcType=VARCHAR}, #{gsex,jdbcType=INTEGER}, 
+      #{gstlye,jdbcType=INTEGER}, #{gtype,jdbcType=INTEGER}, #{gnumber,jdbcType=INTEGER}, 
+      #{gsalenum,jdbcType=INTEGER}, #{gdate,jdbcType=DATE}, #{gnow,jdbcType=INTEGER}, 
+      #{gimage,jdbcType=VARCHAR}, #{gcontext,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.lxsh.model.Goods" >
     insert into goods
@@ -64,6 +67,12 @@
       </if>
       <if test="gsize != null" >
         gsize,
+      </if>
+      <if test="gsex != null" >
+        gsex,
+      </if>
+      <if test="gstlye != null" >
+        gstlye,
       </if>
       <if test="gtype != null" >
         gtype,
@@ -103,6 +112,12 @@
       <if test="gsize != null" >
         #{gsize,jdbcType=VARCHAR},
       </if>
+      <if test="gsex != null" >
+        #{gsex,jdbcType=INTEGER},
+      </if>
+      <if test="gstlye != null" >
+        #{gstlye,jdbcType=INTEGER},
+      </if>
       <if test="gtype != null" >
         #{gtype,jdbcType=INTEGER},
       </if>
@@ -122,7 +137,7 @@
         #{gimage,jdbcType=VARCHAR},
       </if>
       <if test="gcontext != null" >
-        #{gcontext,jdbcType=LONGVARBINARY},
+        #{gcontext,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -140,6 +155,12 @@
       </if>
       <if test="gsize != null" >
         gsize = #{gsize,jdbcType=VARCHAR},
+      </if>
+      <if test="gsex != null" >
+        gsex = #{gsex,jdbcType=INTEGER},
+      </if>
+      <if test="gstlye != null" >
+        gstlye = #{gstlye,jdbcType=INTEGER},
       </if>
       <if test="gtype != null" >
         gtype = #{gtype,jdbcType=INTEGER},
@@ -160,7 +181,7 @@
         gimage = #{gimage,jdbcType=VARCHAR},
       </if>
       <if test="gcontext != null" >
-        gcontext = #{gcontext,jdbcType=LONGVARBINARY},
+        gcontext = #{gcontext,jdbcType=LONGVARCHAR},
       </if>
     </set>
     where gid = #{gid,jdbcType=INTEGER}
@@ -171,13 +192,15 @@
       bid = #{bid,jdbcType=INTEGER},
       gprice = #{gprice,jdbcType=DOUBLE},
       gsize = #{gsize,jdbcType=VARCHAR},
+      gsex = #{gsex,jdbcType=INTEGER},
+      gstlye = #{gstlye,jdbcType=INTEGER},
       gtype = #{gtype,jdbcType=INTEGER},
       gnumber = #{gnumber,jdbcType=INTEGER},
       gsalenum = #{gsalenum,jdbcType=INTEGER},
       gdate = #{gdate,jdbcType=DATE},
       gnow = #{gnow,jdbcType=INTEGER},
       gimage = #{gimage,jdbcType=VARCHAR},
-      gcontext = #{gcontext,jdbcType=LONGVARBINARY}
+      gcontext = #{gcontext,jdbcType=LONGVARCHAR}
     where gid = #{gid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lxsh.model.Goods" >
@@ -186,6 +209,8 @@
       bid = #{bid,jdbcType=INTEGER},
       gprice = #{gprice,jdbcType=DOUBLE},
       gsize = #{gsize,jdbcType=VARCHAR},
+      gsex = #{gsex,jdbcType=INTEGER},
+      gstlye = #{gstlye,jdbcType=INTEGER},
       gtype = #{gtype,jdbcType=INTEGER},
       gnumber = #{gnumber,jdbcType=INTEGER},
       gsalenum = #{gsalenum,jdbcType=INTEGER},

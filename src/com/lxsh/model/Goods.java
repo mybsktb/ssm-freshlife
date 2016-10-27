@@ -13,6 +13,10 @@ public class Goods {
 
     private String gsize;
 
+    private Integer gsex;
+
+    private Integer gstlye;
+
     private Integer gtype;
 
     private Integer gnumber;
@@ -25,7 +29,7 @@ public class Goods {
 
     private String gimage;
 
-    private byte[] gcontext;
+    private String gcontext;
 
     public Integer getGid() {
         return gid;
@@ -65,6 +69,22 @@ public class Goods {
 
     public void setGsize(String gsize) {
         this.gsize = gsize == null ? null : gsize.trim();
+    }
+
+    public Integer getGsex() {
+        return gsex;
+    }
+
+    public void setGsex(Integer gsex) {
+        this.gsex = gsex;
+    }
+
+    public Integer getGstlye() {
+        return gstlye;
+    }
+
+    public void setGstlye(Integer gstlye) {
+        this.gstlye = gstlye;
     }
 
     public Integer getGtype() {
@@ -115,11 +135,11 @@ public class Goods {
         this.gimage = gimage == null ? null : gimage.trim();
     }
 
-    public byte[] getGcontext() {
+    public String getGcontext() {
         return gcontext;
     }
 
-    public void setGcontext(byte[] gcontext) {
-        this.gcontext = gcontext;
+    public void setGcontext(String gcontext) {
+        this.gcontext = gcontext == null ? null : gcontext.trim();
     }
 }

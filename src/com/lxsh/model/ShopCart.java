@@ -7,6 +7,8 @@ public class ShopCart {
 
     private Integer gid;
 
+    private Integer num;
+
     public Integer getCid() {
         return cid;
     }
@@ -29,5 +31,13 @@ public class ShopCart {
 
     public void setGid(Integer gid) {
         this.gid = gid;
+    }
+
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
     }
 }

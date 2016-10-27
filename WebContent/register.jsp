@@ -125,10 +125,6 @@
 							<span class="password-null" style="color:red;display:none">确认密码不能为空</span>
 						</li>
 					</ul>
-					<ul>
-						<li class="text-info">地址:</li>
-						<li><input type="text" value=""></li>
-					</ul>
 					<input type="submit" value="注册">
 					<p class="click">
 						点击按钮，表示您已同意 <a href="#">条款</a>
