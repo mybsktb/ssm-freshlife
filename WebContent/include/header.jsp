@@ -53,13 +53,11 @@
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown">商店<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="products.jsp">鞋</a></li>
-									<li><a href="products.jsp">T恤</a></li>
-									<li><a href="products.jsp">上衣</a></li>
+									<li><a href="products.jsp">男鞋</a></li>
+									<li><a href="products.jsp">女鞋</a></li>
+									<li><a href="products.jsp">童鞋</a></li>
 									<li class="divider"></li>
-									<li><a href="products.jsp">潮流</a></li>
-									<li class="divider"></li>
-									<li><a href="products.jsp">装备</a></li>
+									<li><a href="products.jsp">全部商品</a></li>
 								</ul></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown">男士<b class="caret"></b></a>
@@ -67,11 +65,11 @@
 									<div class="row">
 										<div class="col-sm-4 menu-img-pad">
 											<ul class="multi-column-dropdown">
-												<li><a href="products.jsp">跑步</a></li>
-												<li><a href="products.jsp">足球</a></li>
-												<li><a href="products.jsp">板球</a></li>
+												<li><a href="products.jsp">跑鞋</a></li>
+												<li><a href="products.jsp">板鞋</a></li>
+												<li><a href="products.jsp">凉鞋</a></li>
 												<li class="divider"></li>
-												<li><a href="products.jsp">网球</a></li>
+												<li><a href="products.jsp">运动</a></li>
 												<li class="divider"></li>
 												<li><a href="products.jsp">休闲</a></li>
 											</ul>
@@ -92,13 +90,13 @@
 									<div class="row">
 										<div class="col-sm-6">
 											<ul class="multi-column-dropdown">
-												<li><a href="products.jsp">上衣</a></li>
-												<li><a href="products.jsp">下衣</a></li>
-												<li><a href="products.jsp">瑜伽裤</a></li>
+												<li><a href="products.jsp">跑鞋</a></li>
+												<li><a href="products.jsp">凉鞋</a></li>
+												<li><a href="products.jsp">高跟鞋</a></li>
 												<li class="divider"></li>
 												<li><a href="products.jsp">运动</a></li>
 												<li class="divider"></li>
-												<li><a href="products.jsp">体操</a></li>
+												<li><a href="products.jsp">休闲</a></li>
 											</ul>
 										</div>
 										<div class="col-sm-6">
@@ -110,13 +108,12 @@
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown">儿童<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="products.jsp">T恤</a></li>
-									<li><a href="products.jsp">短裤</a></li>
-									<li><a href="products.jsp">装备</a></li>
+									<li><a href="products.jsp">凉鞋</a></li>
+									<li><a href="products.jsp">跑鞋</a></li>
 									<li class="divider"></li>
-									<li><a href="products.jsp">手表</a></li>
+									<li><a href="products.jsp">运动</a></li>
 									<li class="divider"></li>
-									<li><a href="products.jsp">鞋</a></li>
+									<li><a href="products.jsp">休闲</a></li>
 								</ul></li>
 							<li><a href="contact.jsp">留言</a></li>
 							<div class="clearfix"></div>

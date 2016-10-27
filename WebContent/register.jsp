@@ -57,6 +57,14 @@
 						<li><input type="password" value=""></li>
 					</ul>
 					<ul>
+						<li class="text-info">支付密码:</li>
+						<li><input type="password" value=""></li>
+					</ul>
+					<ul>
+						<li class="text-info">确认密码:</li>
+						<li><input type="password" value=""></li>
+					</ul>
+					<ul>
 						<li class="text-info">手机号:</li>
 						<li><input type="text" value=""></li>
 					</ul>
