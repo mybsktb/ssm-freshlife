@@ -45,15 +45,7 @@
 				</p>
 				<form>
 					<ul>
-						<li class="text-info">姓:</li>
-						<li><input type="text" value=""></li>
-					</ul>
-					<ul>
-						<li class="text-info">名:</li>
-						<li><input type="text" value=""></li>
-					</ul>
-					<ul>
-						<li class="text-info">Email:</li>
+						<li class="text-info">用户名:</li>
 						<li><input type="text" value=""></li>
 					</ul>
 					<ul>
@@ -66,6 +58,10 @@
 					</ul>
 					<ul>
 						<li class="text-info">手机号:</li>
+						<li><input type="text" value=""></li>
+					</ul>
+					<ul>
+						<li class="text-info">地址:</li>
 						<li><input type="text" value=""></li>
 					</ul>
 					<input type="submit" value="注册">
