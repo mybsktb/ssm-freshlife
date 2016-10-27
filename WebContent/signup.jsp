@@ -28,7 +28,7 @@
 		        <div class="head-bread">
             <div class="container">
                 <ol class="breadcrumb">
-                    <li><a href="index.html">主页</a></li>
+                    <li><a href="index.jsp">主页</a></li>
                     <li class="active">登录</li>
                 </ol>
             </div>
@@ -57,7 +57,7 @@
                             <h3>注册新账号</h3>
                             <div class="strip"></div>
                             <p>通过在我们的商店创建帐户，您将能够更快地通过结帐流程，存储多个送货地址，查看和跟踪您的帐户中的订单和更多。</p>
-                            <a href="register.html" class="button">创建一个账户</a>
+                            <a href="register.jsp" class="button">创建一个账户</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>

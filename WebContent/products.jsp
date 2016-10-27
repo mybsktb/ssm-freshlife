@@ -27,7 +27,7 @@
 	<div class="head-bread">
 		<div class="container">
 			<ol class="breadcrumb">
-				<li><a href="index.html">主页</a></li>
+				<li><a href="index.jsp">主页</a></li>
 				<li class="active">产品</li>
 			</ol>
 		</div>
@@ -60,7 +60,7 @@
 					</div>
 					<!-- end normal -->
 					<div class="quick-view">
-						<a href="single.html">快速浏览</a>
+						<a href="single.jsp">快速浏览</a>
 					</div>
 				</div>
 				<div class="col-md-4 grid-stn simpleCart_shelfItem">
@@ -88,7 +88,7 @@
 					</div>
 					<!-- end normal -->
 					<div class="quick-view">
-						<a href="single.html">快速浏览</a>
+						<a href="single.jsp">快速浏览</a>
 					</div>
 				</div>
 				<div class="col-md-4 grid-stn simpleCart_shelfItem">
@@ -116,7 +116,7 @@
 					</div>
 					<!-- end normal -->
 					<div class="quick-view">
-						<a href="single.html">快速浏览</a>
+						<a href="single.jsp">快速浏览</a>
 					</div>
 				</div>
 				<div class="col-md-4 grid-stn simpleCart_shelfItem">
@@ -144,7 +144,7 @@
 					</div>
 					<!-- end normal -->
 					<div class="quick-view">
-						<a href="single.html">快速浏览</a>
+						<a href="single.jsp">快速浏览</a>
 					</div>
 				</div>
 				<div class="col-md-4 grid-stn simpleCart_shelfItem">
@@ -172,7 +172,7 @@
 					</div>
 					<!-- end normal -->
 					<div class="quick-view">
-						<a href="single.html">快速浏览</a>
+						<a href="single.jsp">快速浏览</a>
 					</div>
 				</div>
 				<div class="col-md-4 grid-stn simpleCart_shelfItem">
@@ -200,7 +200,7 @@
 					</div>
 					<!-- end normal -->
 					<div class="quick-view">
-						<a href="single.html">快速浏览</a>
+						<a href="single.jsp">快速浏览</a>
 					</div>
 				</div>
 				<div class="col-md-4 grid-stn simpleCart_shelfItem">
@@ -228,7 +228,7 @@
 					</div>
 					<!-- end normal -->
 					<div class="quick-view">
-						<a href="single.html">快速浏览</a>
+						<a href="single.jsp">快速浏览</a>
 					</div>
 				</div>
 				<div class="col-md-4 grid-stn simpleCart_shelfItem">
@@ -256,7 +256,7 @@
 					</div>
 					<!-- end normal -->
 					<div class="quick-view">
-						<a href="single.html">快速浏览</a>
+						<a href="single.jsp">快速浏览</a>
 					</div>
 				</div>
 				<div class="col-md-4 grid-stn simpleCart_shelfItem">
@@ -284,7 +284,7 @@
 					</div>
 					<!-- end normal -->
 					<div class="quick-view">
-						<a href="single.html">快速浏览</a>
+						<a href="single.jsp">快速浏览</a>
 					</div>
 				</div>
 				<div class="col-md-4 grid-stn simpleCart_shelfItem">
@@ -312,7 +312,7 @@
 					</div>
 					<!-- end normal -->
 					<div class="quick-view">
-						<a href="single.html">快速浏览</a>
+						<a href="single.jsp">快速浏览</a>
 					</div>
 				</div>
 				<div class="col-md-4 grid-stn simpleCart_shelfItem">
@@ -340,7 +340,7 @@
 					</div>
 					<!-- end normal -->
 					<div class="quick-view">
-						<a href="single.html">快速浏览</a>
+						<a href="single.jsp">快速浏览</a>
 					</div>
 				</div>
 				<div class="col-md-4 grid-stn simpleCart_shelfItem">
@@ -368,7 +368,7 @@
 					</div>
 					<!-- end normal -->
 					<div class="quick-view">
-						<a href="single.html">快速浏览</a>
+						<a href="single.jsp">快速浏览</a>
 					</div>
 				</div>
 				<div class="clearfix"></div>

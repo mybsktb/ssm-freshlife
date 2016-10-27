@@ -28,8 +28,8 @@
 	<div class="head-bread">
 		<div class="container">
 			<ol class="breadcrumb">
-				<li><a href="index.html">主页</a></li>
-				<li><a href="register.html">登录</a></li>
+				<li><a href="index.jsp">主页</a></li>
+				<li><a href="register.jsp">登录</a></li>
 				<li class="active">注册</li>
 			</ol>
 		</div>

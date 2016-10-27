@@ -21,7 +21,7 @@
 				<li><a href="#">快递</a></li>
 				<li><a href="#">退货说明</a></li>
 				<li><a href="#">条款</a></li>
-				<li><a href="contact.html">网站地图</a></li>
+				<li><a href="contact.jsp">网站地图</a></li>
 			</ul>
 		</div>
 		<div class="col-md-6 re-ft-grd">
@@ -36,7 +36,7 @@
 		<div class="col-md-2 re-ft-grd">
 			<div class="bt-logo">
 				<div class="logo">
-					<a href="index.html" class="ft-log">N-AIR</a>
+					<a href="index.jsp" class="ft-log">N-AIR</a>
 				</div>
 			</div>
 		</div>

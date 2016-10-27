@@ -18,7 +18,7 @@
 	<div class="head-bread">
 		<div class="container">
 			<ol class="breadcrumb">
-				<li><a href="index.html">首页</a></li>
+				<li><a href="index.jsp">首页</a></li>
 				<li class="active">留言</li>
 			</ol>
 		</div>
