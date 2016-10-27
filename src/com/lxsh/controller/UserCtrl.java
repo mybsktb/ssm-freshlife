@@ -28,8 +28,7 @@ public class UserCtrl {
 
 	@RequestMapping(value="/login", method= RequestMethod.POST)
 	public String login(User user, Model model){
-		Log.log.info("登录...");
-		System.out.println(user);
+		Log.log.info("登录:"+user.getUname());
 		String result = userService.login(user);
 		if(Const.SUCCESS.equals(result)){
 			model.addAttribute("uname", user.getUname());
@@ -45,7 +44,7 @@ public class UserCtrl {
 	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session,Model model){
-		Log.log.info("退出登录...");
+		Log.log.info("退出登录:"+session.getAttribute("uname").toString());
 		model.addAttribute("uname", "");
 		session.invalidate();
 		return "index";
@@ -66,9 +65,11 @@ public class UserCtrl {
 			return "register";
 		}
 		boolean result = userService.register(user);
-		if(result)
+		if(result){
+			Log.log.info("注册成功！用户："+user.getUname()+" 自动跳转至首页...");
 			return "forward:login";
-		
+		}
+		Log.log.info("注册失败！用户名："+user.getUname());
 		return "register";
 	}
 }

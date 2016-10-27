@@ -16,7 +16,6 @@
 			<div class="login-bars">
 				<%
 					String username = (String)session.getAttribute("uname");
-					Log.log.info("登录过后的用户名："+username);
 					if(!StringUtil.isEmpty(username)){
 						%>
 						<a class="btn btn-default log-bar" href="personal.jsp">${sessionScope.uname }</a>&nbsp;
