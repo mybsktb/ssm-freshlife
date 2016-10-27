@@ -1,10 +1,7 @@
 package com.lxsh.dao;
 
-import org.springframework.stereotype.Repository;
-
 import com.lxsh.model.ShopCart;
 
-@Repository
 public interface IShopCartDao {
     int deleteByPrimaryKey(Integer cid);
 

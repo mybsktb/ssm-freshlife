@@ -15,9 +15,66 @@
 <script>
 	// Can also be used with $(document).ready()
 	$(window).load(function() {
-		$('.flexslider').flexslider({
+		/* $('.flexslider').flexslider({
 			animation : "slide",
 			controlNav : "thumbnails"
+		}); */
+
+		$(":text").focusout(function(){
+			var username = $(":text").val();
+			if(""==username){
+				$(".text-null").css('display','inline');
+				$(".text-ok").css('display','none');
+				$(".text-exist").css('display','none');
+			} else {
+				$.ajax({
+					url:'checkusername',
+					data:{'username':username},
+					success:function(data){
+						if("success"==data){
+							$(".text-ok").css('display','inline');
+							$(".text-exist").css('display','none');
+							$(".text-null").css('display','none');
+						} else if ("fail"==data) {
+							$(".text-exist").css('display','inline');
+							$(".text-ok").css('display','none');
+							$(".text-null").css('display','none');
+						}
+					}
+				});
+			}
+		});
+
+		$(":password:first").focusout(function(){
+			var pwd = $(":password:first").val();
+			if(""==pwd){
+				$(".pwd-null").css('display','inline');
+				$(".pwd-ok").css('display','none');
+				$(".pwd-error").css('display','none');
+			} else {
+				$(":password:last").css('display','inline');
+				$(".pwd-ok").css('display','inline');
+				$(".pwd-error").css('display','none');
+				$(".pwd-null").css('display','none');
+			}
+		});
+
+		$(":password:last").focusout(function(){
+			var pwd = $(":password:first").val();
+			var confrim = $(":password:last").val();
+			if(""==confrim){
+				$(".password-null").css('display','inline');
+				$(".password-ok").css('display','none');
+				$(".password-error").css('display','none');
+			} else if(pwd==confrim){
+				$(".password-ok").css('display','inline');
+				$(".password-error").css('display','none');
+				$(".password-null").css('display','none');
+			} else if (pwd!=confrim){
+				$(".password-error").css('display','inline');
+				$(".password-ok").css('display','none');
+				$(".password-null").css('display','none');
+			}
 		});
 	});
 </script>
@@ -43,30 +100,30 @@
 				<p>
 					如果您已经注册 <a href="#">点击这里</a>
 				</p>
-				<form>
+				<form action="register" method="post">
 					<ul>
-						<li class="text-info">姓:</li>
-						<li><input type="text" value=""></li>
-					</ul>
-					<ul>
-						<li class="text-info">名:</li>
-						<li><input type="text" value=""></li>
-					</ul>
-					<ul>
-						<li class="text-info">Email:</li>
-						<li><input type="text" value=""></li>
+						<li class="text-info">用户名:</li>
+						<li><input type="text" name="uname">
+							<span class="text-ok" style="color:green;display:none">用户名可用</span>
+							<span class="text-exist" style="color:red;display:none">用户名已存在</span>
+							<span class="text-null" style="color:red;display:none">用户名不能为空</span>
+						</li>
 					</ul>
 					<ul>
 						<li class="text-info">密码:</li>
-						<li><input type="password" value=""></li>
+						<li><input type="password" name="upwd">
+							<span class="pwd-ok" style="color:green;display:none">密码OK</span>
+							<span class="pwd-error" style="color:red;display:none">6-12位数字或字母</span>
+							<span class="pwd-null" style="color:red;display:none">密码不能为空</span>
+						</li>
 					</ul>
 					<ul>
 						<li class="text-info">确认密码:</li>
-						<li><input type="password" value=""></li>
-					</ul>
-					<ul>
-						<li class="text-info">手机号:</li>
-						<li><input type="text" value=""></li>
+						<li><input type="password" style="display: none">
+							<span class="password-ok" style="color:green;display:none">密码一致</span>
+							<span class="password-error" style="color:red;display:none">密码不一致</span>
+							<span class="password-null" style="color:red;display:none">确认密码不能为空</span>
+						</li>
 					</ul>
 					<input type="submit" value="注册">
 					<p class="click">

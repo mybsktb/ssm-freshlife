@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" 
+	import="com.lxsh.util.*"
+	contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
@@ -9,12 +11,24 @@
 	<div class="container">
 		<div class="header-top">
 			<div class="logo">
-				<a href="index.jsp">N-AIR</a>
+				<a href="index.jsp">FRESH-LIFE</a>
 			</div>
 			<div class="login-bars">
-				<a class="btn btn-default log-bar" href="register.jsp"
-					role="button">注册</a> <a class="btn btn-default log-bar"
-					href="signup.jsp" role="button">登录</a>
+				<%
+					String username = (String)session.getAttribute("uname");
+					Log.log.info("登录过后的用户名："+username);
+					if(!StringUtil.isEmpty(username)){
+						%>
+						<a class="btn btn-default log-bar" href="personal.jsp">${sessionScope.uname }</a>&nbsp;
+						<a class="btn btn-default log-bar" href="logout" role="button">退出登录</a>
+						<%
+					} else {
+						%>
+						<a class="btn btn-default log-bar" href="register.jsp" role="button">注册</a> 
+						<a class="btn btn-default log-bar" href="signup.jsp" role="button">登录</a>
+						<%
+					}
+				%>
 				<div class="cart box_1">
 					<a href="checkout.jsp">
 						<h3>

@@ -7,19 +7,25 @@ public class Goods {
 
     private String gname;
 
+    private Integer bid;
+
     private Double gprice;
 
-    private String gtype;
+    private String gsize;
+
+    private Integer gtype;
 
     private Integer gnumber;
 
     private Integer gsalenum;
 
-    private String gcontext;
-
     private Date gdate;
 
-    private Boolean gnow;
+    private Integer gnow;
+
+    private String gimage;
+
+    private byte[] gcontext;
 
     public Integer getGid() {
         return gid;
@@ -37,6 +43,14 @@ public class Goods {
         this.gname = gname == null ? null : gname.trim();
     }
 
+    public Integer getBid() {
+        return bid;
+    }
+
+    public void setBid(Integer bid) {
+        this.bid = bid;
+    }
+
     public Double getGprice() {
         return gprice;
     }
@@ -45,12 +59,20 @@ public class Goods {
         this.gprice = gprice;
     }
 
-    public String getGtype() {
+    public String getGsize() {
+        return gsize;
+    }
+
+    public void setGsize(String gsize) {
+        this.gsize = gsize == null ? null : gsize.trim();
+    }
+
+    public Integer getGtype() {
         return gtype;
     }
 
-    public void setGtype(String gtype) {
-        this.gtype = gtype == null ? null : gtype.trim();
+    public void setGtype(Integer gtype) {
+        this.gtype = gtype;
     }
 
     public Integer getGnumber() {
@@ -69,14 +91,6 @@ public class Goods {
         this.gsalenum = gsalenum;
     }
 
-    public String getGcontext() {
-        return gcontext;
-    }
-
-    public void setGcontext(String gcontext) {
-        this.gcontext = gcontext == null ? null : gcontext.trim();
-    }
-
     public Date getGdate() {
         return gdate;
     }
@@ -85,11 +99,27 @@ public class Goods {
         this.gdate = gdate;
     }
 
-    public Boolean getGnow() {
+    public Integer getGnow() {
         return gnow;
     }
 
-    public void setGnow(Boolean gnow) {
+    public void setGnow(Integer gnow) {
         this.gnow = gnow;
+    }
+
+    public String getGimage() {
+        return gimage;
+    }
+
+    public void setGimage(String gimage) {
+        this.gimage = gimage == null ? null : gimage.trim();
+    }
+
+    public byte[] getGcontext() {
+        return gcontext;
+    }
+
+    public void setGcontext(byte[] gcontext) {
+        this.gcontext = gcontext;
     }
 }

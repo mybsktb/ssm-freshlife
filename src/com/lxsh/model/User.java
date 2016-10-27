@@ -1,58 +1,63 @@
 package com.lxsh.model;
 
 public class User {
-    private Integer id;
+    private Integer uid;
 
-    private String username;
+    private String uname;
 
-    private String password;
+    private String upwd;
 
-    private Integer type;
+    private Integer paypwd;
 
-    private Integer status;
+    private String adress;
 
-    public Integer getId() {
-        return id;
+    private Double tel;
+
+    public Integer getUid() {
+        return uid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUname() {
+        return uname;
     }
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+    public void setUname(String uname) {
+        this.uname = uname == null ? null : uname.trim();
     }
 
-    public String getPassword() {
-        return password;
+    public String getUpwd() {
+        return upwd;
     }
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+    public void setUpwd(String upwd) {
+        this.upwd = upwd == null ? null : upwd.trim();
     }
 
-    public Integer getType() {
-        return type;
+    public Integer getPaypwd() {
+        return paypwd;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setPaypwd(Integer paypwd) {
+        this.paypwd = paypwd;
     }
 
-    public Integer getStatus() {
-        return status;
+    public String getAdress() {
+        return adress;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setAdress(String adress) {
+        this.adress = adress == null ? null : adress.trim();
     }
 
-	@Override
-	public String toString() {
-		return "name:"+username+" pwd:********";
-	}
+    public Double getTel() {
+        return tel;
+    }
+
+    public void setTel(Double tel) {
+        this.tel = tel;
+    }
 }

@@ -1,10 +1,7 @@
 package com.lxsh.dao;
 
-import org.springframework.stereotype.Repository;
-
 import com.lxsh.model.Collection;
 
-@Repository
 public interface ICollectionDao {
     int deleteByPrimaryKey(Integer cid);
 

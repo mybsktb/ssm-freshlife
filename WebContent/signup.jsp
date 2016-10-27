@@ -45,9 +45,9 @@
                              <p>如果您已登录，请 <a href="#">点击这里</a></p>
                              <form action="login" method="post">
                                  <h5>用户名:</h5>	
-                                 <input type="text" name="username">
+                                 <input type="text" name="uname">
                                  <h5>密码:</h5>
-                                 <input type="password" name="password"><br>					
+                                 <input type="password" name="upwd"><br>					
                                  <input type="submit" value="登录">
 
                              </form>

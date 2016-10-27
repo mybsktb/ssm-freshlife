@@ -1,18 +1,22 @@
 package com.lxsh.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.lxsh.common.Const;
 import com.lxsh.model.User;
 import com.lxsh.service.IUserService;
+import com.lxsh.util.Log;
 
 @Controller
-@SessionAttributes("username")
+@SessionAttributes("uname")
 public class UserCtrl {
 	
 	@Resource(name="userService")
@@ -22,12 +26,13 @@ public class UserCtrl {
 		this.userService = userService;
 	}
 
-	@RequestMapping("/login")
+	@RequestMapping(value="/login", method= RequestMethod.POST)
 	public String login(User user, Model model){
+		Log.log.info("登录...");
 		System.out.println(user);
 		String result = userService.login(user);
 		if(Const.SUCCESS.equals(result)){
-			model.addAttribute("username", user.getUsername());
+			model.addAttribute("uname", user.getUname());
 			return "index";
 		} else if(Const.NOT_EXIST.equals(result)){
 			model.addAttribute("info", "用户名或密码错误！");
@@ -36,5 +41,34 @@ public class UserCtrl {
 			model.addAttribute("info", "登录失败！");
 			return "login";
 		}
+	}
+	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session,Model model){
+		Log.log.info("退出登录...");
+		model.addAttribute("uname", "");
+		session.invalidate();
+		return "index";
+	}
+	
+	@RequestMapping("/checkusername")
+	@ResponseBody
+	public String checkUserName(String username){
+		Log.log.info("check name:"+username);
+		
+		return userService.checkUserName(username);
+	}
+	
+	@RequestMapping("register")
+	public String register(User user, Model model){
+		if(user == null){
+			model.addAttribute("r-info", "注册失败！");
+			return "register";
+		}
+		boolean result = userService.register(user);
+		if(result)
+			return "forward:login";
+		
+		return "register";
 	}
 }

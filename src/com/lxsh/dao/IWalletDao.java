@@ -1,10 +1,7 @@
 package com.lxsh.dao;
 
-import org.springframework.stereotype.Repository;
-
 import com.lxsh.model.Wallet;
 
-@Repository
 public interface IWalletDao {
     int deleteByPrimaryKey(Integer wid);
 

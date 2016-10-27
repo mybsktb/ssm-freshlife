@@ -2,24 +2,25 @@ package com.lxsh.dao;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
 import com.lxsh.model.User;
 
-@Repository
 public interface IUserDao {
-    int deleteByPrimaryKey(Integer id);
+    public int deleteByPrimaryKey(Integer uid);
 
-//    @Insert("insert into user (username, password) value(#{username},#{password})")
-    int insert(User record);
+    public int insert(User record);
 
-    int insertSelective(User record);
+    public int insertSelective(User record);
 
-    User selectByPrimaryKey(Integer id);
+    public User selectByPrimaryKey(Integer uid);
 
-    int updateByPrimaryKeySelective(User record);
+    public int updateByPrimaryKeySelective(User record);
 
-    int updateByPrimaryKey(User record);
+    public int updateByPrimaryKey(User record);
+    /** 登录*/
+    public List<User> login(User user);
+    /** 用户名检查*/
+    public List<User> checkUserName(String user);
+    /** 注册*/
+    public int register(User user);
     
-    List<User> login(User user);
 }

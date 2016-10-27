@@ -1,10 +1,7 @@
 package com.lxsh.dao;
 
-import org.springframework.stereotype.Repository;
-
 import com.lxsh.model.Goods;
 
-@Repository
 public interface IGoodsDao {
     int deleteByPrimaryKey(Integer gid);
 
@@ -15,6 +12,8 @@ public interface IGoodsDao {
     Goods selectByPrimaryKey(Integer gid);
 
     int updateByPrimaryKeySelective(Goods record);
+
+    int updateByPrimaryKeyWithBLOBs(Goods record);
 
     int updateByPrimaryKey(Goods record);
 }

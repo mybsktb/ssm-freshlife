@@ -1,10 +1,7 @@
 package com.lxsh.dao;
 
-import org.springframework.stereotype.Repository;
-
 import com.lxsh.model.Message;
 
-@Repository
 public interface IMessageDao {
     int deleteByPrimaryKey(Integer mid);
 

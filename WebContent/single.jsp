@@ -121,7 +121,7 @@
 					<ul>
 						<li class="ad-2-crt simpleCart_shelfItem"><a
 							class="btn item_add" href="#" role="button">加入购物车</a> <a
-							class="btn" href="#" role="button">付款</a></li>
+							class="btn" href="#" role="button">立即购买</a></li>
 					</ul>
 				</div>
 				<div class="showcase-last">
@@ -174,7 +174,7 @@
 
 	<div class="you-might-like">
 		<div class="container">
-			<h3 class="you-might">您也许会喜欢</h3>
+			<h3 class="you-might">猜你喜欢</h3>
 			<div class="col-md-4 grid-stn simpleCart_shelfItem">
 				<!-- normal -->
 				<div class="ih-item square effect3 bottom_to_top">
