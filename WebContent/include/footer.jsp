@@ -8,7 +8,6 @@
 				<li><a href="#">男士</a></li>
 				<li><a href="#">女士</a></li>
 				<li><a href="#">儿童</a></li>
-				<li><a href="#">正装</a></li>
 				<li><a href="#">休闲</a></li>
 				<li><a href="#">运动</a></li>
 			</ul>

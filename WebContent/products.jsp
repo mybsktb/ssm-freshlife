@@ -10,7 +10,7 @@
 <head>
 <base href="<%=basePath%>" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>所有商品</title>
+<title>商品</title>
 <jsp:include page="include/head.jsp"></jsp:include>
 <script>
 	// Can also be used with $(document).ready()
