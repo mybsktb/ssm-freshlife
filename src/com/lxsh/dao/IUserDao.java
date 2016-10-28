@@ -16,11 +16,10 @@ public interface IUserDao {
     public int updateByPrimaryKeySelective(User record);
 
     public int updateByPrimaryKey(User record);
-    /** ç™»å½•*/
+    /** µÇÂ¼*/
     public List<User> login(User user);
-    /** ç”¨æˆ·åæ£€æŸ¥*/
+    /** ÓÃ»§Ãû¼ì²é*/
     public List<User> checkUserName(String user);
-    /** æ³¨å†Œ*/
+    /** ×¢²á*/
     public int register(User user);
-    
 }

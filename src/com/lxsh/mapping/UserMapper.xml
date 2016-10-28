@@ -5,12 +5,13 @@
     <id column="uid" property="uid" jdbcType="INTEGER" />
     <result column="uname" property="uname" jdbcType="VARCHAR" />
     <result column="upwd" property="upwd" jdbcType="VARCHAR" />
-    <result column="paypwd" property="paypwd" jdbcType="INTEGER" />
+    <result column="paypwd" property="paypwd" jdbcType="VARCHAR" />
     <result column="adress" property="adress" jdbcType="VARCHAR" />
     <result column="tel" property="tel" jdbcType="DOUBLE" />
+    <result column="balance" property="balance" jdbcType="BIGINT" />
   </resultMap>
   <sql id="Base_Column_List" >
-    uid, uname, upwd, paypwd, adress, tel
+    uid, uname, upwd, paypwd, adress, tel, balance
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -24,9 +25,11 @@
   </delete>
   <insert id="insert" parameterType="com.lxsh.model.User" >
     insert into user (uid, uname, upwd, 
-      paypwd, adress, tel)
+      paypwd, adress, tel, 
+      balance)
     values (#{uid,jdbcType=INTEGER}, #{uname,jdbcType=VARCHAR}, #{upwd,jdbcType=VARCHAR}, 
-      #{paypwd,jdbcType=INTEGER}, #{adress,jdbcType=VARCHAR}, #{tel,jdbcType=DOUBLE})
+      #{paypwd,jdbcType=VARCHAR}, #{adress,jdbcType=VARCHAR}, #{tel,jdbcType=DOUBLE}, 
+      #{balance,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.lxsh.model.User" >
     insert into user
@@ -49,6 +52,9 @@
       <if test="tel != null" >
         tel,
       </if>
+      <if test="balance != null" >
+        balance,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="uid != null" >
@@ -61,13 +67,16 @@
         #{upwd,jdbcType=VARCHAR},
       </if>
       <if test="paypwd != null" >
-        #{paypwd,jdbcType=INTEGER},
+        #{paypwd,jdbcType=VARCHAR},
       </if>
       <if test="adress != null" >
         #{adress,jdbcType=VARCHAR},
       </if>
       <if test="tel != null" >
         #{tel,jdbcType=DOUBLE},
+      </if>
+      <if test="balance != null" >
+        #{balance,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -81,13 +90,16 @@
         upwd = #{upwd,jdbcType=VARCHAR},
       </if>
       <if test="paypwd != null" >
-        paypwd = #{paypwd,jdbcType=INTEGER},
+        paypwd = #{paypwd,jdbcType=VARCHAR},
       </if>
       <if test="adress != null" >
         adress = #{adress,jdbcType=VARCHAR},
       </if>
       <if test="tel != null" >
         tel = #{tel,jdbcType=DOUBLE},
+      </if>
+      <if test="balance != null" >
+        balance = #{balance,jdbcType=BIGINT},
       </if>
     </set>
     where uid = #{uid,jdbcType=INTEGER}
@@ -96,9 +108,10 @@
     update user
     set uname = #{uname,jdbcType=VARCHAR},
       upwd = #{upwd,jdbcType=VARCHAR},
-      paypwd = #{paypwd,jdbcType=INTEGER},
+      paypwd = #{paypwd,jdbcType=VARCHAR},
       adress = #{adress,jdbcType=VARCHAR},
-      tel = #{tel,jdbcType=DOUBLE}
+      tel = #{tel,jdbcType=DOUBLE},
+      balance = #{balance,jdbcType=BIGINT}
     where uid = #{uid,jdbcType=INTEGER}
   </update>
   <select id="login" resultMap="BaseResultMap" parameterType="com.lxsh.model.User" >

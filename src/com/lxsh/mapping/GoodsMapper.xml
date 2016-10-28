@@ -6,22 +6,19 @@
     <result column="gname" property="gname" jdbcType="VARCHAR" />
     <result column="bid" property="bid" jdbcType="INTEGER" />
     <result column="gprice" property="gprice" jdbcType="DOUBLE" />
-    <result column="gsize" property="gsize" jdbcType="VARCHAR" />
-    <result column="gsex" property="gsex" jdbcType="INTEGER" />
-    <result column="gstlye" property="gstlye" jdbcType="INTEGER" />
-    <result column="gtype" property="gtype" jdbcType="INTEGER" />
-    <result column="gnumber" property="gnumber" jdbcType="INTEGER" />
+    <result column="gsid" property="gsid" jdbcType="INTEGER" />
+    <result column="glid" property="glid" jdbcType="INTEGER" />
+    <result column="gtid" property="gtid" jdbcType="INTEGER" />
     <result column="gsalenum" property="gsalenum" jdbcType="INTEGER" />
     <result column="gdate" property="gdate" jdbcType="DATE" />
-    <result column="gnow" property="gnow" jdbcType="INTEGER" />
+    <result column="statusid" property="statusid" jdbcType="INTEGER" />
     <result column="gimage" property="gimage" jdbcType="VARCHAR" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.lxsh.model.Goods" extends="BaseResultMap" >
     <result column="gcontext" property="gcontext" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    gid, gname, bid, gprice, gsize, gsex, gstlye, gtype, gnumber, gsalenum, gdate, gnow, 
-    gimage
+    gid, gname, bid, gprice, gsid, glid, gtid, gsalenum, gdate, statusid, gimage
   </sql>
   <sql id="Blob_Column_List" >
     gcontext
@@ -40,15 +37,15 @@
   </delete>
   <insert id="insert" parameterType="com.lxsh.model.Goods" >
     insert into goods (gid, gname, bid, 
-      gprice, gsize, gsex, 
-      gstlye, gtype, gnumber, 
-      gsalenum, gdate, gnow, 
-      gimage, gcontext)
+      gprice, gsid, glid, 
+      gtid, gsalenum, gdate, 
+      statusid, gimage, gcontext
+      )
     values (#{gid,jdbcType=INTEGER}, #{gname,jdbcType=VARCHAR}, #{bid,jdbcType=INTEGER}, 
-      #{gprice,jdbcType=DOUBLE}, #{gsize,jdbcType=VARCHAR}, #{gsex,jdbcType=INTEGER}, 
-      #{gstlye,jdbcType=INTEGER}, #{gtype,jdbcType=INTEGER}, #{gnumber,jdbcType=INTEGER}, 
-      #{gsalenum,jdbcType=INTEGER}, #{gdate,jdbcType=DATE}, #{gnow,jdbcType=INTEGER}, 
-      #{gimage,jdbcType=VARCHAR}, #{gcontext,jdbcType=LONGVARCHAR})
+      #{gprice,jdbcType=DOUBLE}, #{gsid,jdbcType=INTEGER}, #{glid,jdbcType=INTEGER}, 
+      #{gtid,jdbcType=INTEGER}, #{gsalenum,jdbcType=INTEGER}, #{gdate,jdbcType=DATE}, 
+      #{statusid,jdbcType=INTEGER}, #{gimage,jdbcType=VARCHAR}, #{gcontext,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.lxsh.model.Goods" >
     insert into goods
@@ -65,20 +62,14 @@
       <if test="gprice != null" >
         gprice,
       </if>
-      <if test="gsize != null" >
-        gsize,
+      <if test="gsid != null" >
+        gsid,
       </if>
-      <if test="gsex != null" >
-        gsex,
+      <if test="glid != null" >
+        glid,
       </if>
-      <if test="gstlye != null" >
-        gstlye,
-      </if>
-      <if test="gtype != null" >
-        gtype,
-      </if>
-      <if test="gnumber != null" >
-        gnumber,
+      <if test="gtid != null" >
+        gtid,
       </if>
       <if test="gsalenum != null" >
         gsalenum,
@@ -86,8 +77,8 @@
       <if test="gdate != null" >
         gdate,
       </if>
-      <if test="gnow != null" >
-        gnow,
+      <if test="statusid != null" >
+        statusid,
       </if>
       <if test="gimage != null" >
         gimage,
@@ -109,20 +100,14 @@
       <if test="gprice != null" >
         #{gprice,jdbcType=DOUBLE},
       </if>
-      <if test="gsize != null" >
-        #{gsize,jdbcType=VARCHAR},
+      <if test="gsid != null" >
+        #{gsid,jdbcType=INTEGER},
       </if>
-      <if test="gsex != null" >
-        #{gsex,jdbcType=INTEGER},
+      <if test="glid != null" >
+        #{glid,jdbcType=INTEGER},
       </if>
-      <if test="gstlye != null" >
-        #{gstlye,jdbcType=INTEGER},
-      </if>
-      <if test="gtype != null" >
-        #{gtype,jdbcType=INTEGER},
-      </if>
-      <if test="gnumber != null" >
-        #{gnumber,jdbcType=INTEGER},
+      <if test="gtid != null" >
+        #{gtid,jdbcType=INTEGER},
       </if>
       <if test="gsalenum != null" >
         #{gsalenum,jdbcType=INTEGER},
@@ -130,8 +115,8 @@
       <if test="gdate != null" >
         #{gdate,jdbcType=DATE},
       </if>
-      <if test="gnow != null" >
-        #{gnow,jdbcType=INTEGER},
+      <if test="statusid != null" >
+        #{statusid,jdbcType=INTEGER},
       </if>
       <if test="gimage != null" >
         #{gimage,jdbcType=VARCHAR},
@@ -153,20 +138,14 @@
       <if test="gprice != null" >
         gprice = #{gprice,jdbcType=DOUBLE},
       </if>
-      <if test="gsize != null" >
-        gsize = #{gsize,jdbcType=VARCHAR},
+      <if test="gsid != null" >
+        gsid = #{gsid,jdbcType=INTEGER},
       </if>
-      <if test="gsex != null" >
-        gsex = #{gsex,jdbcType=INTEGER},
+      <if test="glid != null" >
+        glid = #{glid,jdbcType=INTEGER},
       </if>
-      <if test="gstlye != null" >
-        gstlye = #{gstlye,jdbcType=INTEGER},
-      </if>
-      <if test="gtype != null" >
-        gtype = #{gtype,jdbcType=INTEGER},
-      </if>
-      <if test="gnumber != null" >
-        gnumber = #{gnumber,jdbcType=INTEGER},
+      <if test="gtid != null" >
+        gtid = #{gtid,jdbcType=INTEGER},
       </if>
       <if test="gsalenum != null" >
         gsalenum = #{gsalenum,jdbcType=INTEGER},
@@ -174,8 +153,8 @@
       <if test="gdate != null" >
         gdate = #{gdate,jdbcType=DATE},
       </if>
-      <if test="gnow != null" >
-        gnow = #{gnow,jdbcType=INTEGER},
+      <if test="statusid != null" >
+        statusid = #{statusid,jdbcType=INTEGER},
       </if>
       <if test="gimage != null" >
         gimage = #{gimage,jdbcType=VARCHAR},
@@ -191,14 +170,12 @@
     set gname = #{gname,jdbcType=VARCHAR},
       bid = #{bid,jdbcType=INTEGER},
       gprice = #{gprice,jdbcType=DOUBLE},
-      gsize = #{gsize,jdbcType=VARCHAR},
-      gsex = #{gsex,jdbcType=INTEGER},
-      gstlye = #{gstlye,jdbcType=INTEGER},
-      gtype = #{gtype,jdbcType=INTEGER},
-      gnumber = #{gnumber,jdbcType=INTEGER},
+      gsid = #{gsid,jdbcType=INTEGER},
+      glid = #{glid,jdbcType=INTEGER},
+      gtid = #{gtid,jdbcType=INTEGER},
       gsalenum = #{gsalenum,jdbcType=INTEGER},
       gdate = #{gdate,jdbcType=DATE},
-      gnow = #{gnow,jdbcType=INTEGER},
+      statusid = #{statusid,jdbcType=INTEGER},
       gimage = #{gimage,jdbcType=VARCHAR},
       gcontext = #{gcontext,jdbcType=LONGVARCHAR}
     where gid = #{gid,jdbcType=INTEGER}
@@ -208,14 +185,12 @@
     set gname = #{gname,jdbcType=VARCHAR},
       bid = #{bid,jdbcType=INTEGER},
       gprice = #{gprice,jdbcType=DOUBLE},
-      gsize = #{gsize,jdbcType=VARCHAR},
-      gsex = #{gsex,jdbcType=INTEGER},
-      gstlye = #{gstlye,jdbcType=INTEGER},
-      gtype = #{gtype,jdbcType=INTEGER},
-      gnumber = #{gnumber,jdbcType=INTEGER},
+      gsid = #{gsid,jdbcType=INTEGER},
+      glid = #{glid,jdbcType=INTEGER},
+      gtid = #{gtid,jdbcType=INTEGER},
       gsalenum = #{gsalenum,jdbcType=INTEGER},
       gdate = #{gdate,jdbcType=DATE},
-      gnow = #{gnow,jdbcType=INTEGER},
+      statusid = #{statusid,jdbcType=INTEGER},
       gimage = #{gimage,jdbcType=VARCHAR}
     where gid = #{gid,jdbcType=INTEGER}
   </update>

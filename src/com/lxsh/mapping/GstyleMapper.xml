@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lxsh.dao.GstyleMapper" >
+  <resultMap id="BaseResultMap" type="com.lxsh.model.Gstyle" >
+    <id column="glid" property="glid" jdbcType="INTEGER" />
+    <result column="gstylename" property="gstylename" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    glid, gstylename
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from gstyle
+    where glid = #{glid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from gstyle
+    where glid = #{glid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lxsh.model.Gstyle" >
+    insert into gstyle (glid, gstylename)
+    values (#{glid,jdbcType=INTEGER}, #{gstylename,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lxsh.model.Gstyle" >
+    insert into gstyle
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="glid != null" >
+        glid,
+      </if>
+      <if test="gstylename != null" >
+        gstylename,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="glid != null" >
+        #{glid,jdbcType=INTEGER},
+      </if>
+      <if test="gstylename != null" >
+        #{gstylename,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lxsh.model.Gstyle" >
+    update gstyle
+    <set >
+      <if test="gstylename != null" >
+        gstylename = #{gstylename,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where glid = #{glid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lxsh.model.Gstyle" >
+    update gstyle
+    set gstylename = #{gstylename,jdbcType=VARCHAR}
+    where glid = #{glid,jdbcType=INTEGER}
+  </update>
+</mapper>

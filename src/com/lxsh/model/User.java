@@ -7,11 +7,13 @@ public class User {
 
     private String upwd;
 
-    private Integer paypwd;
+    private String paypwd;
 
     private String adress;
 
     private Double tel;
+
+    private Long balance;
 
     public Integer getUid() {
         return uid;
@@ -37,12 +39,12 @@ public class User {
         this.upwd = upwd == null ? null : upwd.trim();
     }
 
-    public Integer getPaypwd() {
+    public String getPaypwd() {
         return paypwd;
     }
 
-    public void setPaypwd(Integer paypwd) {
-        this.paypwd = paypwd;
+    public void setPaypwd(String paypwd) {
+        this.paypwd = paypwd == null ? null : paypwd.trim();
     }
 
     public String getAdress() {
@@ -59,5 +61,13 @@ public class User {
 
     public void setTel(Double tel) {
         this.tel = tel;
+    }
+
+    public Long getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Long balance) {
+        this.balance = balance;
     }
 }

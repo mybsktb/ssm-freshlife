@@ -11,21 +11,17 @@ public class Goods {
 
     private Double gprice;
 
-    private String gsize;
+    private Integer gsid;
 
-    private Integer gsex;
+    private Integer glid;
 
-    private Integer gstlye;
-
-    private Integer gtype;
-
-    private Integer gnumber;
+    private Integer gtid;
 
     private Integer gsalenum;
 
     private Date gdate;
 
-    private Integer gnow;
+    private Integer statusid;
 
     private String gimage;
 
@@ -63,44 +59,28 @@ public class Goods {
         this.gprice = gprice;
     }
 
-    public String getGsize() {
-        return gsize;
+    public Integer getGsid() {
+        return gsid;
     }
 
-    public void setGsize(String gsize) {
-        this.gsize = gsize == null ? null : gsize.trim();
+    public void setGsid(Integer gsid) {
+        this.gsid = gsid;
     }
 
-    public Integer getGsex() {
-        return gsex;
+    public Integer getGlid() {
+        return glid;
     }
 
-    public void setGsex(Integer gsex) {
-        this.gsex = gsex;
+    public void setGlid(Integer glid) {
+        this.glid = glid;
     }
 
-    public Integer getGstlye() {
-        return gstlye;
+    public Integer getGtid() {
+        return gtid;
     }
 
-    public void setGstlye(Integer gstlye) {
-        this.gstlye = gstlye;
-    }
-
-    public Integer getGtype() {
-        return gtype;
-    }
-
-    public void setGtype(Integer gtype) {
-        this.gtype = gtype;
-    }
-
-    public Integer getGnumber() {
-        return gnumber;
-    }
-
-    public void setGnumber(Integer gnumber) {
-        this.gnumber = gnumber;
+    public void setGtid(Integer gtid) {
+        this.gtid = gtid;
     }
 
     public Integer getGsalenum() {
@@ -119,12 +99,12 @@ public class Goods {
         this.gdate = gdate;
     }
 
-    public Integer getGnow() {
-        return gnow;
+    public Integer getStatusid() {
+        return statusid;
     }
 
-    public void setGnow(Integer gnow) {
-        this.gnow = gnow;
+    public void setStatusid(Integer statusid) {
+        this.statusid = statusid;
     }
 
     public String getGimage() {

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lxsh.dao.GsexMapper" >
+  <resultMap id="BaseResultMap" type="com.lxsh.model.Gsex" >
+    <id column="gsid" property="gsid" jdbcType="INTEGER" />
+    <result column="gsexname" property="gsexname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    gsid, gsexname
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from gsex
+    where gsid = #{gsid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from gsex
+    where gsid = #{gsid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lxsh.model.Gsex" >
+    insert into gsex (gsid, gsexname)
+    values (#{gsid,jdbcType=INTEGER}, #{gsexname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lxsh.model.Gsex" >
+    insert into gsex
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gsid != null" >
+        gsid,
+      </if>
+      <if test="gsexname != null" >
+        gsexname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gsid != null" >
+        #{gsid,jdbcType=INTEGER},
+      </if>
+      <if test="gsexname != null" >
+        #{gsexname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lxsh.model.Gsex" >
+    update gsex
+    <set >
+      <if test="gsexname != null" >
+        gsexname = #{gsexname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where gsid = #{gsid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lxsh.model.Gsex" >
+    update gsex
+    set gsexname = #{gsexname,jdbcType=VARCHAR}
+    where gsid = #{gsid,jdbcType=INTEGER}
+  </update>
+</mapper>

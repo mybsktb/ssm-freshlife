@@ -2,36 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lxsh.dao.IShopCartDao" >
   <resultMap id="BaseResultMap" type="com.lxsh.model.ShopCart" >
-    <id column="cid" property="cid" jdbcType="INTEGER" />
-    <result column="uid" property="uid" jdbcType="INTEGER" />
-    <result column="gid" property="gid" jdbcType="INTEGER" />
+    <id column="uid" property="uid" jdbcType="INTEGER" />
+    <id column="gid" property="gid" jdbcType="INTEGER" />
     <result column="num" property="num" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    cid, uid, gid, num
+    uid, gid, num
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.lxsh.model.ShopCartKey" >
     select 
     <include refid="Base_Column_List" />
     from shopcart
-    where cid = #{cid,jdbcType=INTEGER}
+    where uid = #{uid,jdbcType=INTEGER}
+      and gid = #{gid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="com.lxsh.model.ShopCartKey" >
     delete from shopcart
-    where cid = #{cid,jdbcType=INTEGER}
+    where uid = #{uid,jdbcType=INTEGER}
+      and gid = #{gid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.lxsh.model.ShopCart" >
-    insert into shopcart (cid, uid, gid, 
-      num)
-    values (#{cid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{gid,jdbcType=INTEGER}, 
-      #{num,jdbcType=INTEGER})
+    insert into shopcart (uid, gid, num
+      )
+    values (#{uid,jdbcType=INTEGER}, #{gid,jdbcType=INTEGER}, #{num,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.lxsh.model.ShopCart" >
     insert into shopcart
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="cid != null" >
-        cid,
-      </if>
       <if test="uid != null" >
         uid,
       </if>
@@ -43,9 +41,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="cid != null" >
-        #{cid,jdbcType=INTEGER},
-      </if>
       <if test="uid != null" >
         #{uid,jdbcType=INTEGER},
       </if>
@@ -60,23 +55,17 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.lxsh.model.ShopCart" >
     update shopcart
     <set >
-      <if test="uid != null" >
-        uid = #{uid,jdbcType=INTEGER},
-      </if>
-      <if test="gid != null" >
-        gid = #{gid,jdbcType=INTEGER},
-      </if>
       <if test="num != null" >
         num = #{num,jdbcType=INTEGER},
       </if>
     </set>
-    where cid = #{cid,jdbcType=INTEGER}
+    where uid = #{uid,jdbcType=INTEGER}
+      and gid = #{gid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lxsh.model.ShopCart" >
     update shopcart
-    set uid = #{uid,jdbcType=INTEGER},
-      gid = #{gid,jdbcType=INTEGER},
-      num = #{num,jdbcType=INTEGER}
-    where cid = #{cid,jdbcType=INTEGER}
+    set num = #{num,jdbcType=INTEGER}
+    where uid = #{uid,jdbcType=INTEGER}
+      and gid = #{gid,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -1,15 +1,16 @@
 package com.lxsh.dao;
 
 import com.lxsh.model.Collection;
+import com.lxsh.model.CollectionKey;
 
 public interface ICollectionDao {
-    int deleteByPrimaryKey(Integer cid);
+    int deleteByPrimaryKey(CollectionKey key);
 
     int insert(Collection record);
 
     int insertSelective(Collection record);
 
-    Collection selectByPrimaryKey(Integer cid);
+    Collection selectByPrimaryKey(CollectionKey key);
 
     int updateByPrimaryKeySelective(Collection record);
 

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lxsh.dao.GtypeMapper" >
+  <resultMap id="BaseResultMap" type="com.lxsh.model.Gtype" >
+    <id column="gtid" property="gtid" jdbcType="INTEGER" />
+    <result column="gtypename" property="gtypename" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    gtid, gtypename
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from gtype
+    where gtid = #{gtid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from gtype
+    where gtid = #{gtid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lxsh.model.Gtype" >
+    insert into gtype (gtid, gtypename)
+    values (#{gtid,jdbcType=INTEGER}, #{gtypename,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lxsh.model.Gtype" >
+    insert into gtype
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gtid != null" >
+        gtid,
+      </if>
+      <if test="gtypename != null" >
+        gtypename,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gtid != null" >
+        #{gtid,jdbcType=INTEGER},
+      </if>
+      <if test="gtypename != null" >
+        #{gtypename,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lxsh.model.Gtype" >
+    update gtype
+    <set >
+      <if test="gtypename != null" >
+        gtypename = #{gtypename,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where gtid = #{gtid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lxsh.model.Gtype" >
+    update gtype
+    set gtypename = #{gtypename,jdbcType=VARCHAR}
+    where gtid = #{gtid,jdbcType=INTEGER}
+  </update>
+</mapper>
