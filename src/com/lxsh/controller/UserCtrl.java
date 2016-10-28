@@ -64,7 +64,6 @@ public class UserCtrl {
 			model.addAttribute("r-info", "注册失败！");
 			return "register";
 		}
-		Log.log.info("注册--用户名："+user.getUname());
 		boolean result = userService.register(user);
 		if(result){
 			Log.log.info("注册成功！用户："+user.getUname()+" 自动跳转至首页...");
