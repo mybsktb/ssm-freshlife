@@ -1,5 +1,7 @@
 package com.lxsh.dao;
 
+import java.util.List;
+
 import com.lxsh.model.Goods;
 
 public interface IGoodsDao {
@@ -16,4 +18,6 @@ public interface IGoodsDao {
     int updateByPrimaryKeyWithBLOBs(Goods record);
 
     int updateByPrimaryKey(Goods record);
+    
+    public List<Goods> getRecentGoods();
 }

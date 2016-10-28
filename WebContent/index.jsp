@@ -1,4 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page import="com.lxsh.service.impl.GoodsServiceImpl"%>
+<%@ page language="java" 
+	contentType="text/html; charset=UTF-8"
+	import="com.lxsh.service.*"
+	import="java.util.*"
+	import="com.lxsh.model.*"
 	pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
@@ -12,6 +17,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>首页</title>
 <jsp:include page="include/head.jsp"></jsp:include>
+<style type="text/css">
+	table{
+		width:90%;
+		padding:0px;
+		margin:0px auto;
+	}
+</style>
 </head>
 <body>
 <body>
@@ -100,175 +112,63 @@
 	</div>
 	<div class="shop-grid">
 		<div class="container">
-			<div class="col-md-4 grid-stn simpleCart_shelfItem">
-				<!-- normal -->
-				<div class="ih-item square effect3 bottom_to_top">
-					<div class="bottom-2-top">
-						<div class="img">
-							<img src="resources/images/grid4.jpg" alt="/"
-								class="img-responsive gri-wid">
-						</div>
-						<div class="info">
-							<div class="pull-left styl-hdn">
-								<h3>款式一</h3>
+		<table>
+    	<%
+    	/* IGoodsService goodsService = new GoodsServiceImpl();
+		List<Goods> list = goodsService.getRecentGoods(); */
+						List<Goods> list = (List<Goods>)request.getAttribute("list");
+		if(list==null){
+			out.print("噩噩噩噩噩。。。。。");
+		}else{
+			int index = 0;
+	    	for(int k=0;k<2;k++){
+				%><tr height="300px"><%
+	   			int count = 0;
+	    		for(int i=0;i<3;i++){
+	    			Goods good = list.get(index);
+	    			%><td width="500px">
+						<div class="grid-stn">
+							<!-- normal -->
+							<div class="ih-item square effect3 bottom_to_top">
+								<div class="bottom-2-top">
+									<div class="img">
+										<img src="resources/images/grid4.jpg" alt="/"
+											class="img-responsive gri-wid">
+									</div>
+									<div class="info">
+										<div class="pull-left styl-hdn">
+											<h3><%=good.getGname() %></h3>
+										</div>
+										<div class="pull-right styl-price">
+											<p>
+												<a href="#" class="item_add"><span
+													class="glyphicon glyphicon-shopping-cart grid-cart"
+													aria-hidden="true"></span> <span class=" item_price">￥<%=good.getGprice() %></span></a>
+											</p>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
 							</div>
-							<div class="pull-right styl-price">
-								<p>
-									<a href="#" class="item_add"><span
-										class="glyphicon glyphicon-shopping-cart grid-cart"
-										aria-hidden="true"></span> <span class=" item_price">$190</span></a>
-								</p>
+							<!-- end normal -->
+							<div class="quick-view">
+								<a href="single.jsp">详细浏览</a>
 							</div>
-							<div class="clearfix"></div>
 						</div>
-					</div>
-				</div>
-				<!-- end normal -->
-				<div class="quick-view">
-					<a href="single.jsp">详细浏览</a>
-				</div>
-			</div>
-			<div class="col-md-4 grid-stn simpleCart_shelfItem">
-				<!-- normal -->
-				<div class="ih-item square effect3 bottom_to_top">
-					<div class="bottom-2-top">
-						<div class="img">
-							<img src="resources/images/grid6.jpg" alt="/"
-								class="img-responsive gri-wid">
-						</div>
-						<div class="info">
-							<div class="pull-left styl-hdn">
-								<h3>款式二</h3>
-							</div>
-							<div class="pull-right styl-price">
-								<p>
-									<a href="#" class="item_add"><span
-										class="glyphicon glyphicon-shopping-cart grid-cart"
-										aria-hidden="true"></span> <span class=" item_price">$190</span></a>
-								</p>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<!-- end normal -->
-				<div class="quick-view">
-					<a href="single.jsp">详细浏览</a>
-				</div>
-			</div>
-			<div class="col-md-4 grid-stn simpleCart_shelfItem">
-				<!-- normal -->
-				<div class="ih-item square effect3 bottom_to_top">
-					<div class="bottom-2-top">
-						<div class="img">
-							<img src="resources/images/grid3.jpg" alt="/"
-								class="img-responsive gri-wid">
-						</div>
-						<div class="info">
-							<div class="pull-left styl-hdn">
-								<h3>款式三</h3>
-							</div>
-							<div class="pull-right styl-price">
-								<p>
-									<a href="#" class="item_add"><span
-										class="glyphicon glyphicon-shopping-cart grid-cart"
-										aria-hidden="true"></span> <span class=" item_price">$190</span></a>
-								</p>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<!-- end normal -->
-				<div class="quick-view">
-					<a href="single.jsp">详细浏览</a>
-				</div>
-			</div>
-			<div class="col-md-4 grid-stn simpleCart_shelfItem">
-				<!-- normal -->
-				<div class="ih-item square effect3 bottom_to_top">
-					<div class="bottom-2-top">
-						<div class="img">
-							<img src="resources/images/grid5.jpg" alt="/"
-								class="img-responsive gri-wid">
-						</div>
-						<div class="info">
-							<div class="pull-left styl-hdn">
-								<h3>款式四</h3>
-							</div>
-							<div class="pull-right styl-price">
-								<p>
-									<a href="#" class="item_add"><span
-										class="glyphicon glyphicon-shopping-cart grid-cart"
-										aria-hidden="true"></span> <span class=" item_price">$190</span></a>
-								</p>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<!-- end normal -->
-				<div class="quick-view">
-					<a href="single.jsp">详细浏览</a>
-				</div>
-			</div>
-			<div class="col-md-4 grid-stn simpleCart_shelfItem">
-				<!-- normal -->
-				<div class="ih-item square effect3 bottom_to_top">
-					<div class="bottom-2-top">
-						<div class="img">
-							<img src="resources/images/grid7.jpg" alt="/"
-								class="img-responsive gri-wid">
-						</div>
-						<div class="info">
-							<div class="pull-left styl-hdn">
-								<h3>款式五</h3>
-							</div>
-							<div class="pull-right styl-price">
-								<p>
-									<a href="#" class="item_add"><span
-										class="glyphicon glyphicon-shopping-cart grid-cart"
-										aria-hidden="true"></span> <span class=" item_price">$190</span></a>
-								</p>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<!-- end normal -->
-				<div class="quick-view">
-					<a href="single.jsp">详细浏览</a>
-				</div>
-			</div>
-			<div class="col-md-4 grid-stn simpleCart_shelfItem">
-				<!-- normal -->
-				<div class="ih-item square effect3 bottom_to_top">
-					<div class="bottom-2-top">
-						<div class="img">
-							<img src="resources/images/grid8.jpg" alt="/"
-								class="img-responsive gri-wid">
-						</div>
-						<div class="info">
-							<div class="pull-left styl-hdn">
-								<h3>款式六</h3>
-							</div>
-							<div class="pull-right styl-price">
-								<p>
-									<a href="#" class="item_add"><span
-										class="glyphicon glyphicon-shopping-cart grid-cart"
-										aria-hidden="true"></span> <span class=" item_price">$190</span></a>
-								</p>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<!-- end normal -->
-				<div class="quick-view">
-					<a href="single.jsp">详细浏览</a>
-				</div>
-			</div>
-			<div class="clearfix"></div>
+						<div class="clearfix"></div>
+	    			</td>
+					<%
+		    		count++;
+					index++;
+		    		if(count==3){
+		    			break;
+		    		}
+	    		}
+	   			%></tr>
+			<%}
+	    	}
+    	%>
+		</table>
 		</div>
 	</div>
 	<div class="sub-news">

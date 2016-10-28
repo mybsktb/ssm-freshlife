@@ -23,6 +23,9 @@
   <sql id="Blob_Column_List" >
     gcontext
   </sql>
+  <select id="getRecentGoods" resultMap="ResultMapWithBLOBs">
+  	select * from goods order by gdate limit 6
+  </select>
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
