@@ -1,4 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" 
+	import="com.lxsh.model.GoodDetail"
+	import="java.util.*"
+	contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
@@ -36,6 +39,11 @@
 	</div>
 	<div class="showcase-grid">
 		<div class="container">
+			<%
+			List<GoodDetail> detail = (List<GoodDetail>)request.getAttribute("detail");
+			if(detail==null){
+				
+			} else {%>
 			<div class="col-md-8 showcase">
 				<div class="flexslider">
 					<ul class="slides">
@@ -70,23 +78,12 @@
 			<div class="col-md-4 showcase">
 				<div class="showcase-rt-top">
 					<div class="pull-left shoe-name">
-						<h3>Nike Air Max 2015</h3>
-						<p>男士跑鞋</p>
-						<h4>&#36;190</h4>
+						<h3><%=detail.get(0).getGname() %></h3>
+						<p><%=detail.get(0).getGsexname() %><%=detail.get(0).getGtypename() %></p>
+						<h4>￥<%=detail.get(0).getGprice() %></h4>
 					</div>
 					<div class="pull-left rating-stars">
-						<ul>
-							<li><a href="#" class="active"><span
-									class="glyphicon glyphicon-star star-stn" aria-hidden="true"></span></a></li>
-							<li><a href="#" class="active"><span
-									class="glyphicon glyphicon-star star-stn" aria-hidden="true"></span></a></li>
-							<li><a href="#" class="active"><span
-									class="glyphicon glyphicon-star star-stn" aria-hidden="true"></span></a></li>
-							<li><a href="#"><span
-									class="glyphicon glyphicon-star star-stn" aria-hidden="true"></span></a></li>
-							<li><a href="#"><span
-									class="glyphicon glyphicon-star star-stn" aria-hidden="true"></span></a></li>
-						</ul>
+						<span>库存 </span><%=detail.get(0).getGnum() %><span> 件 </span>
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -96,12 +93,11 @@
 						<ul>
 							<li class="qty">
 								<h3>选择尺寸</h3> <select class="form-control siz-chrt">
-									<option>6 US</option>
-									<option>7 US</option>
-									<option>8 US</option>
-									<option>9 US</option>
-									<option>10 US</option>
-									<option>11 US</option>
+									<%
+									for(GoodDetail detl : detail){%>
+									<option><%=detl.getGsize() %></option>
+									<%}
+									%>
 							</select>
 							</li>
 							<li class="qty">
@@ -127,19 +123,15 @@
 				<div class="showcase-last">
 					<h3>产品详情</h3>
 					<ul>
-						<li>Internal bootie wraps your foot for a sock-like fit</li>
-						<li>Unique eyestays work with the Flywire cables to create an
-							even better glove-like fit</li>
-						<li>Waffle outsole for durability and multi-surface traction</li>
-						<li>Sculpted Cushlon midsole combines plush cushioning and
-							springy resilience for impact protection</li>
-						<li>Midsole flex grooves for greater forefoot flexibility</li>
+						<li><%=detail.get(0).getGcontext() %></li>
 					</ul>
 				</div>
 			</div>
 			<div class="clearfix"></div>
 		</div>
 	</div>
+	<%}
+	%>
 
 	<div class="specifications">
 		<div class="container">

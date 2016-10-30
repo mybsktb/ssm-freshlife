@@ -114,11 +114,9 @@
 		<div class="container">
 		<table>
     	<%
-    	/* IGoodsService goodsService = new GoodsServiceImpl();
-		List<Goods> list = goodsService.getRecentGoods(); */
-						List<Goods> list = (List<Goods>)request.getAttribute("list");
+		List<Goods> list = (List<Goods>)request.getAttribute("list_recent");
 		if(list==null){
-			out.print("噩噩噩噩噩。。。。。");
+			out.print("没有相关商品。。。。。");
 		}else{
 			int index = 0;
 	    	for(int k=0;k<2;k++){
@@ -132,7 +130,7 @@
 							<div class="ih-item square effect3 bottom_to_top">
 								<div class="bottom-2-top">
 									<div class="img">
-										<img src="resources/images/grid4.jpg" alt="/"
+										<img src="<%=good.getGimage() %>" alt="/"
 											class="img-responsive gri-wid">
 									</div>
 									<div class="info">
@@ -152,7 +150,7 @@
 							</div>
 							<!-- end normal -->
 							<div class="quick-view">
-								<a href="single.jsp">详细浏览</a>
+								<a href="single_jsp?gid=<%=good.getGid() %>">详细浏览</a>
 							</div>
 						</div>
 						<div class="clearfix"></div>

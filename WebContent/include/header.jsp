@@ -66,11 +66,11 @@
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown">商店<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="products.jsp">男鞋</a></li>
-									<li><a href="products.jsp">女鞋</a></li>
-									<li><a href="products.jsp">童鞋</a></li>
+									<li><a href="products_man">男鞋</a></li>
+									<li><a href="products_woman">女鞋</a></li>
+									<li><a href="products_child">童鞋</a></li>
 									<li class="divider"></li>
-									<li><a href="products.jsp">全部商品</a></li>
+									<li><a href="products_jsp">全部商品</a></li>
 								</ul></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown">男士<b class="caret"></b></a>
