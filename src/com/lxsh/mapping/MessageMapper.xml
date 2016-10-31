@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lxsh.dao.IMessageDao" >
+<mapper namespace="com.lxsh.dao.IContactDao" >
   <resultMap id="BaseResultMap" type="com.lxsh.model.Message" >
     <id column="mid" property="mid" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -21,11 +21,11 @@
     delete from message
     where mid = #{mid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.lxsh.model.Message" >
-    insert into message (mid, name, email, 
-      context, isread)
-    values (#{mid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{context,jdbcType=VARCHAR}, #{isread,jdbcType=BIT})
+  <insert id="contactUs" parameterType="com.lxsh.model.Message" >
+    insert into message ( name, email, 
+      context)
+    values (#{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{context,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.lxsh.model.Message" >
     insert into message

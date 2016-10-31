@@ -15,7 +15,7 @@
 		<div class="col-md-2 re-ft-grd">
 			<h3>链接</h3>
 			<ul class="shot-links">
-				<li><a href="#">联系我们</a></li>
+				<li><a href="contact.jsp">联系我们</a></li>
 				<li><a href="#">帮助</a></li>
 				<li><a href="#">快递</a></li>
 				<li><a href="#">退货说明</a></li>

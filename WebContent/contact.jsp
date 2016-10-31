@@ -26,19 +26,17 @@
 	<!-- contact -->
 	<div class="contact">
 		<div class="container">
-			<h3>联系我们</h3>
+			<h3>联系我们 ${info}</h3>
 			<div class="contact-content">
-				<form>
-					<input type="text" class="textbox" value=" Your Name"
-						onfocus="this.value = '';"
-						onblur="if (this.value == '') {this.value = '姓名';}"><br>
-					<input type="text" class="textbox" value="Your E-Mail"
-						onfocus="this.value = '';"
-						onblur="if (this.value == '') {this.value = '邮箱';}"><br>
+				<form action="<%=basePath %>contactUs" method="post">
+					<input type="text" class="textbox" name="name"
+						><br>
+					<input type="text" class="textbox" name="email"
+						><br>
 					<div class="clear"></div>
 					<div>
-						<textarea value="Message:" onfocus="this.value = '';"
-							onblur="if (this.value == '') {this.value = '留言板 ';}">Your Message</textarea>
+						<textarea name="context" onfocus="this.value = '';"
+							onblur="if (this.value == '') {this.value = '留言板 ';}"></textarea>
 						<br>
 					</div>
 					<div class="submit">
