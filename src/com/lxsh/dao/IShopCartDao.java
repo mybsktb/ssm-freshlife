@@ -1,5 +1,7 @@
 package com.lxsh.dao;
 
+import java.util.List;
+
 import com.lxsh.model.ShopCart;
 import com.lxsh.model.ShopCartKey;
 
@@ -15,4 +17,6 @@ public interface IShopCartDao {
     int updateByPrimaryKeySelective(ShopCart record);
 
     int updateByPrimaryKey(ShopCart record);
+    
+    public List<ShopCart> getShopCartByUid(Integer uid);
 }

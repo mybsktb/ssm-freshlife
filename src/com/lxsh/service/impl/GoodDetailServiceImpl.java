@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.lxsh.dao.IGoodDetailDao;
 import com.lxsh.model.GoodDetail;
+import com.lxsh.model.SubGoodsKey;
 import com.lxsh.service.IGoodDetailService;
 import com.lxsh.util.Log;
 
@@ -17,10 +18,16 @@ public class GoodDetailServiceImpl implements IGoodDetailService {
 	IGoodDetailDao goodDetailDao;
 
 	@Override
-	public List<GoodDetail> getGoodDetail(Integer gid) {
+	public List<GoodDetail> getGoodDetail(SubGoodsKey key) {
 		// TODO Auto-generated method stub
-		Log.log.info("service gid:"+gid);
-		return goodDetailDao.getGoodDetail(gid);
+		Log.log.info("service gid:"+key.getGid());
+		return goodDetailDao.getGoodDetail(key);
+	}
+
+	@Override
+	public List<GoodDetail> getRecentGoods() {
+		// TODO Auto-generated method stub
+		return goodDetailDao.getRecentGoods();
 	}
 
 }

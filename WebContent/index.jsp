@@ -114,7 +114,7 @@
 		<div class="container">
 		<table>
     	<%
-		List<Goods> list = (List<Goods>)request.getAttribute("list_recent");
+    	List<GoodDetail> list = (List<GoodDetail>)request.getAttribute("list-recent");
 		if(list==null){
 			out.print("没有相关商品。。。。。");
 		}else{
@@ -123,7 +123,7 @@
 				%><tr height="300px"><%
 	   			int count = 0;
 	    		for(int i=0;i<3;i++){
-	    			Goods good = list.get(index);
+	    			GoodDetail good = list.get(index);
 	    			%><td width="500px">
 						<div class="grid-stn">
 							<!-- normal -->
@@ -150,7 +150,7 @@
 							</div>
 							<!-- end normal -->
 							<div class="quick-view">
-								<a href="single_jsp?gid=<%=good.getGid() %>">详细浏览</a>
+								<a href="single_jsp?gid=<%=good.getGid() %>&cid=<%=good.getCid() %>&gsize=<%=good.getGsize() %>">详细浏览</a>
 							</div>
 						</div>
 						<div class="clearfix"></div>
@@ -169,7 +169,7 @@
 		</table>
 		</div>
 	</div>
-	<div class="sub-news">
+	<!-- <div class="sub-news">
 		<div class="container">
 			<form>
 				<h3>NewsLetter</h3>
@@ -179,7 +179,7 @@
 					class="btn btn-default subs-btn" href="#" role="button">SUBSCRIBE</a>
 			</form>
 		</div>
-	</div>
+	</div> -->
 	<jsp:include page="include/footer.jsp"></jsp:include>
 </body>
 </html>

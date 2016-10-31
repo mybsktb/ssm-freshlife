@@ -11,15 +11,23 @@ public class GoodDetail {
 
     private Double gprice;
 
+    private Integer gsid;
+
     private String gsexname;
 
+    private Integer glid;
+
     private String gstylename;
+
+    private Integer gtid;
 
     private String gtypename;
 
     private Integer gsize;
 
     private Integer gnum;
+
+    private Integer cid;
 
     private String cname;
 
@@ -65,6 +73,14 @@ public class GoodDetail {
         this.gprice = gprice;
     }
 
+    public Integer getGsid() {
+        return gsid;
+    }
+
+    public void setGsid(Integer gsid) {
+        this.gsid = gsid;
+    }
+
     public String getGsexname() {
         return gsexname;
     }
@@ -73,12 +89,28 @@ public class GoodDetail {
         this.gsexname = gsexname == null ? null : gsexname.trim();
     }
 
+    public Integer getGlid() {
+        return glid;
+    }
+
+    public void setGlid(Integer glid) {
+        this.glid = glid;
+    }
+
     public String getGstylename() {
         return gstylename;
     }
 
     public void setGstylename(String gstylename) {
         this.gstylename = gstylename == null ? null : gstylename.trim();
+    }
+
+    public Integer getGtid() {
+        return gtid;
+    }
+
+    public void setGtid(Integer gtid) {
+        this.gtid = gtid;
     }
 
     public String getGtypename() {
@@ -103,6 +135,14 @@ public class GoodDetail {
 
     public void setGnum(Integer gnum) {
         this.gnum = gnum;
+    }
+
+    public Integer getCid() {
+        return cid;
+    }
+
+    public void setCid(Integer cid) {
+        this.cid = cid;
     }
 
     public String getCname() {

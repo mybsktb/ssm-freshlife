@@ -1,5 +1,7 @@
 package com.lxsh.service;
 
+import java.util.List;
+
 import com.lxsh.model.User;
 
 public interface IUserService {
@@ -7,7 +9,7 @@ public interface IUserService {
 	
 	public int insert(User user);
 	
-	public String login(User user);
+	public List<User> login(User user);
 	
 	public String checkUserName(String username);
 	

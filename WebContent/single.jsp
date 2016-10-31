@@ -1,7 +1,5 @@
-<%@ page language="java" 
-	import="com.lxsh.model.GoodDetail"
-	import="java.util.*"
-	contentType="text/html; charset=UTF-8"
+<%@ page language="java" import="com.lxsh.model.GoodDetail"
+	import="java.util.*" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
@@ -18,10 +16,31 @@
 <script>
 	// Can also be used with $(document).ready()
 	$(window).load(function() {
-		$('.flexslider').flexslider({
+		/* $('.flexslider').flexslider({
 			animation : "slide",
 			controlNav : "thumbnails"
 		});
+ */
+		$("#addToShopCart").click(function(){
+			var gid = $("#gid").text();
+			var num = $("#num").val();
+			var gsize = $("#gsize").val();
+			var cid = $("#cid").val();
+			var gprice = $("#gprice").text();
+			$.ajax({
+				url:'addToShopCart',
+				data:{'gid':gid,'num':num,'gsize':gsize,'cid':cid,'gprice':gprice},
+				type:'post',
+				success:function(data){
+						if(data){
+							alert("添加成功！");
+							location.reload();
+						}else{
+							alert("添加失败！！");
+						}
+					}
+				});
+			});
 	});
 </script>
 </head>
@@ -40,10 +59,11 @@
 	<div class="showcase-grid">
 		<div class="container">
 			<%
-			List<GoodDetail> detail = (List<GoodDetail>)request.getAttribute("detail");
-			if(detail==null){
-				
-			} else {%>
+				List<GoodDetail> detail = (List<GoodDetail>) request.getAttribute("detail");
+				if (detail == null) {
+
+				} else {
+			%>
 			<div class="col-md-8 showcase">
 				<div class="flexslider">
 					<ul class="slides">
@@ -78,12 +98,12 @@
 			<div class="col-md-4 showcase">
 				<div class="showcase-rt-top">
 					<div class="pull-left shoe-name">
-						<h3><%=detail.get(0).getGname() %></h3>
-						<p><%=detail.get(0).getGsexname() %><%=detail.get(0).getGtypename() %></p>
-						<h4>￥<%=detail.get(0).getGprice() %></h4>
-					</div>
-					<div class="pull-left rating-stars">
-						<span>库存 </span><%=detail.get(0).getGnum() %><span> 件 </span>
+						<p style="display: none;" id="gid"><%=detail.get(0).getGid()%></p>
+						<h3><%=detail.get(0).getGname()%></h3>
+						<p><%=detail.get(0).getGsexname()%><%=detail.get(0).getGtypename()%></p>
+						<h4>
+							￥<span id="gprice"><%=detail.get(0).getGprice()%></span>
+						</h4>
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -92,45 +112,61 @@
 					<div class="float-qty-chart">
 						<ul>
 							<li class="qty">
-								<h3>选择尺寸</h3> <select class="form-control siz-chrt">
+								<h4>颜色</h4> <select class="form-control qnty-chrt" id="cid">
 									<%
-									for(GoodDetail detl : detail){%>
-									<option><%=detl.getGsize() %></option>
-									<%}
+										for (GoodDetail detl : detail) {
+									%>
+									<option value="<%=detl.getCid()%>"><%=detl.getCname()%></option>
+									<%
+										}
 									%>
 							</select>
 							</li>
 							<li class="qty">
-								<h4>数量</h4> <select class="form-control qnty-chrt">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-									<option>6</option>
-									<option>7</option>
+								<h3>选择尺寸</h3> <select class="form-control siz-chrt" id="gsize">
+									<%
+										for (GoodDetail detl : detail) {
+									%>
+									<option><%=detl.getGsize()%></option>
+									<%
+										}
+									%>
 							</select>
+							</li>
+							<li class="qty">
+								<h3>数量</h3>
+								<select class="form-control siz-chrt" id="num">
+									<%
+										for (int i=1; i<=detail.get(0).getGnum();i++) {
+									%>
+									<option value="<%=i%>"><%=i%></option>
+									<%
+										}
+									%>
+								</select>
+								<span>库存 </span><%=detail.get(0).getGnum()%><span> 件 </span>
 							</li>
 						</ul>
 						<div class="clearfix"></div>
 					</div>
 					<ul>
 						<li class="ad-2-crt simpleCart_shelfItem"><a
-							class="btn item_add" href="#" role="button">加入购物车</a> <a
+							class="btn item_add" role="button" id="addToShopCart">加入购物车</a> <a
 							class="btn" href="#" role="button">立即购买</a></li>
 					</ul>
 				</div>
 				<div class="showcase-last">
 					<h3>产品详情</h3>
 					<ul>
-						<li><%=detail.get(0).getGcontext() %></li>
+						<li><%=detail.get(0).getGcontext()%></li>
 					</ul>
 				</div>
 			</div>
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	<%}
+	<%
+		}
 	%>
 
 	<div class="specifications">
@@ -164,11 +200,11 @@
 		</div>
 	</div>
 
-	<div class="you-might-like">
+<!-- 	<div class="you-might-like">
 		<div class="container">
 			<h3 class="you-might">猜你喜欢</h3>
 			<div class="col-md-4 grid-stn simpleCart_shelfItem">
-				<!-- normal -->
+				normal
 				<div class="ih-item square effect3 bottom_to_top">
 					<div class="bottom-2-top">
 						<div class="img">
@@ -190,13 +226,13 @@
 						</div>
 					</div>
 				</div>
-				<!-- end normal -->
+				end normal
 				<div class="quick-view">
 					<a href="single.jsp">快速浏览</a>
 				</div>
 			</div>
 			<div class="col-md-4 grid-stn simpleCart_shelfItem">
-				<!-- normal -->
+				normal
 				<div class="ih-item square effect3 bottom_to_top">
 					<div class="bottom-2-top">
 						<div class="img">
@@ -218,13 +254,13 @@
 						</div>
 					</div>
 				</div>
-				<!-- end normal -->
+				end normal
 				<div class="quick-view">
 					<a href="single.jsp">快速浏览</a>
 				</div>
 			</div>
 			<div class="col-md-4 grid-stn simpleCart_shelfItem">
-				<!-- normal -->
+				normal
 				<div class="ih-item square effect3 bottom_to_top">
 					<div class="bottom-2-top">
 						<div class="img">
@@ -246,14 +282,14 @@
 						</div>
 					</div>
 				</div>
-				<!-- end normal -->
+				end normal
 				<div class="quick-view">
 					<a href="single.jsp">快速浏览</a>
 				</div>
 			</div>
 			<div class="clearfix"></div>
 		</div>
-	</div>
+	</div> -->
 	<jsp:include page="include/footer.jsp"></jsp:include>
 </body>
 </html>

@@ -32,15 +32,9 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public String login(User user) {
+	public List<User> login(User user) {
 		
-		List<User> list = userDao.login(user);
-		
-		if(list.size()==1)
-			return "success";
-		else if(list.size()==0)
-			return "not-exist";
-		return "fail";
+		return userDao.login(user);
 	}
 
 	@Override

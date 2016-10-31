@@ -98,7 +98,7 @@
 				<h3>现在注册</h3>
 				<p>欢迎，请跟随提示继续操作</p>
 				<p>
-					如果您已经注册 <a href="#">点击这里</a>
+					如果您已经注册 <a href="signup.jsp">点击这里</a>
 				</p>
 				<form action="register" method="post">
 					<ul>

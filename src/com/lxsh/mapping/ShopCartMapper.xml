@@ -1,70 +1,109 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lxsh.dao.IShopCartDao" >
-  <resultMap id="BaseResultMap" type="com.lxsh.model.ShopCart" >
-    <id column="uid" property="uid" jdbcType="INTEGER" />
-    <id column="gid" property="gid" jdbcType="INTEGER" />
-    <result column="num" property="num" jdbcType="INTEGER" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lxsh.dao.IShopCartDao">
+  <resultMap id="BaseResultMap" type="com.lxsh.model.ShopCart">
+    <id column="uid" jdbcType="INTEGER" property="uid" />
+    <id column="gid" jdbcType="INTEGER" property="gid" />
+    <result column="num" jdbcType="INTEGER" property="num" />
+    <result column="gprice" jdbcType="DOUBLE" property="gprice" />
+    <result column="gsize" jdbcType="INTEGER" property="gsize" />
+    <result column="cid" jdbcType="INTEGER" property="cid" />
   </resultMap>
-  <sql id="Base_Column_List" >
-    uid, gid, num
+  <sql id="Base_Column_List">
+    uid, gid, num, gprice, gsize, cid
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.lxsh.model.ShopCartKey" >
+  <select id="getShopCartByUid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  	select
+  	<include refid="Base_Column_List"/>
+  	from shopcart
+  	where uid = #{uid,jdbcType=INTEGER}
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.lxsh.model.ShopCartKey" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from shopcart
     where uid = #{uid,jdbcType=INTEGER}
       and gid = #{gid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.lxsh.model.ShopCartKey" >
+  <delete id="deleteByPrimaryKey" parameterType="com.lxsh.model.ShopCartKey">
     delete from shopcart
     where uid = #{uid,jdbcType=INTEGER}
       and gid = #{gid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.lxsh.model.ShopCart" >
-    insert into shopcart (uid, gid, num
-      )
-    values (#{uid,jdbcType=INTEGER}, #{gid,jdbcType=INTEGER}, #{num,jdbcType=INTEGER}
-      )
+  <insert id="insert" parameterType="com.lxsh.model.ShopCart">
+    insert into shopcart (uid, gid, num, 
+      gprice, gsize, cid)
+    values (#{uid,jdbcType=INTEGER}, #{gid,jdbcType=INTEGER}, #{num,jdbcType=INTEGER}, 
+      #{gprice,jdbcType=DOUBLE}, #{gsize,jdbcType=INTEGER}, #{cid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.lxsh.model.ShopCart" >
+  <insert id="insertSelective" parameterType="com.lxsh.model.ShopCart">
     insert into shopcart
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="uid != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
         uid,
       </if>
-      <if test="gid != null" >
+      <if test="gid != null">
         gid,
       </if>
-      <if test="num != null" >
+      <if test="num != null">
         num,
       </if>
+      <if test="gprice != null">
+        gprice,
+      </if>
+      <if test="gsize != null">
+        gsize,
+      </if>
+      <if test="cid != null">
+        cid,
+      </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="uid != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
         #{uid,jdbcType=INTEGER},
       </if>
-      <if test="gid != null" >
+      <if test="gid != null">
         #{gid,jdbcType=INTEGER},
       </if>
-      <if test="num != null" >
+      <if test="num != null">
         #{num,jdbcType=INTEGER},
+      </if>
+      <if test="gprice != null">
+        #{gprice,jdbcType=DOUBLE},
+      </if>
+      <if test="gsize != null">
+        #{gsize,jdbcType=INTEGER},
+      </if>
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lxsh.model.ShopCart" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.lxsh.model.ShopCart">
     update shopcart
-    <set >
-      <if test="num != null" >
+    <set>
+      <if test="num != null">
         num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="gprice != null">
+        gprice = #{gprice,jdbcType=DOUBLE},
+      </if>
+      <if test="gsize != null">
+        gsize = #{gsize,jdbcType=INTEGER},
+      </if>
+      <if test="cid != null">
+        cid = #{cid,jdbcType=INTEGER},
       </if>
     </set>
     where uid = #{uid,jdbcType=INTEGER}
       and gid = #{gid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lxsh.model.ShopCart" >
+  <update id="updateByPrimaryKey" parameterType="com.lxsh.model.ShopCart">
     update shopcart
-    set num = #{num,jdbcType=INTEGER}
+    set num = #{num,jdbcType=INTEGER},
+      gprice = #{gprice,jdbcType=DOUBLE},
+      gsize = #{gsize,jdbcType=INTEGER},
+      cid = #{cid,jdbcType=INTEGER}
     where uid = #{uid,jdbcType=INTEGER}
       and gid = #{gid,jdbcType=INTEGER}
   </update>

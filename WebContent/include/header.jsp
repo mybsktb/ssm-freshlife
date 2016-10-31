@@ -1,5 +1,7 @@
 <%@ page language="java" 
 	import="com.lxsh.util.*"
+	import="java.util.*"
+	import="com.lxsh.model.*"
 	contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -11,14 +13,14 @@
 	<div class="container">
 		<div class="header-top">
 			<div class="logo">
-				<a href="index.jsp">FRESH-LIFE</a>
+				<a href="index_handle.jsp">FRESH-LIFE</a>
 			</div>
 			<div class="login-bars">
 				<%
-					String username = (String)session.getAttribute("uname");
-					if(!StringUtil.isEmpty(username)){
+					User user = (User)session.getAttribute("user");
+					if(user != null && !StringUtil.isEmpty(user.getUname())){
 						%>
-						<a class="btn btn-default log-bar" href="personal.jsp">${sessionScope.uname }</a>&nbsp;
+						<a class="btn btn-default log-bar" href="personal_jsp">${sessionScope.user.uname }</a>&nbsp;
 						<a class="btn btn-default log-bar" href="logout" role="button">退出登录</a>
 						<%
 					} else {
@@ -28,17 +30,27 @@
 						<%
 					}
 				%>
+				<%
+				List<ShopCart> shopCartList = (List<ShopCart>)request.getAttribute("shopCartList");
+				Double totalPrice = 0.0;
+				Integer count = 0;
+				if(shopCartList!=null && shopCartList.size()!=0){
+					count = shopCartList.size();
+					for(ShopCart sc: shopCartList){
+						totalPrice += sc.getGprice()*sc.getNum();
+					}
+				}
+				%>
 				<div class="cart box_1">
-					<a href="checkout.jsp">
+					<a href="shopcart">
 						<h3>
 							<div class="total">
-								<span class="simpleCart_total"></span>(<span
-									id="simpleCart_quantity" class="simpleCart_quantity"></span>)
+								<span>￥<%=totalPrice %></span>&nbsp;(<span><%=count %></span>)
 							</div>
 						</h3>
 					</a>
 					<p>
-						<a href="javascript:;" class="simpleCart_empty">购物车</a>
+						<a href="shopcart" class="simpleCart_empty">购物车</a>
 					</p>
 					<div class="clearfix"></div>
 				</div>
